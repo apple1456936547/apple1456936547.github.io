@@ -26,13 +26,26 @@
   margin-right: 1%;
 }
 
-.section1 .top {
+.top {
+  text-decoration: none;
+  text-align: center;
   width: 300px;
-  background-color: green;
-  font-size: 32px;
+  color: #ec4a4a;
+  font-size: 40px;
   font-weight: 600;
   position: fixed;
-  left: 20px;
+  z-index: 999;
+  top: 70%;
+  left: 85%;
+}
+
+.top:hover {
+  color: #6b0a1a;
+}
+
+.top .top-text {
+  font-size: 28px;
+  text-decoration: none;
 }
 
 .section2 {
