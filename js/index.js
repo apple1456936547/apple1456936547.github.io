@@ -19,62 +19,62 @@ var start_img = [
 
 var shop_food = [
     {
-        name: '鍋物1',
+        name: '素薑母鴨火鍋',
         img: "img/0411.jpg",
         tag1: 'hot-pot'
     },
     {
-        name: '鍋物2',
+        name: '綜合湯底火鍋',
         img: "img/0412.jpg",
         tag1: 'hot-pot'
     },
     {
-        name: '鍋物3',
+        name: '素當歸鴨火鍋',
         img: "img/0413.jpg",
         tag1: 'hot-pot'
     },
     {
-        name: '異國1',
+        name: '番茄義大利麵',
         img: "img/0421.jpg",
         tag1: 'exotic'
     },
     {
-        name: '異國2',
+        name: '菇菇牛奶義大利麵',
         img: "img/0422.jpg",
         tag1: 'exotic'
     },
     {
-        name: '異國3',
+        name: '瑪格麗特披薩',
         img: "img/0423.jpg",
         tag1: 'exotic'
     },
     {
-        name: '中式1',
+        name: '麻婆豆腐',
         img: "img/0431.jpg",
         tag1: 'chinese'
     },
     {
-        name: '中式2',
+        name: '青蔬煎餃',
         img: "img/0432.jpg",
         tag1: 'chinese'
     },
     {
-        name: '中式3',
+        name: '素番茄魚子雞',
         img: "img/0433.jpg",
         tag1: 'chinese'
     },
     {
-        name: '甜點1',
+        name: '紅豆麻糬',
         img: "img/0441.jpg",
         tag1: 'sweet'
     },
     {
-        name: '甜點2',
+        name: '炸春捲',
         img: "img/0442.jpg",
         tag1: 'sweet'
     },
     {
-        name: '甜點3',
+        name: '土鳳梨酥',
         img: "img/0443.jpg",
         tag1: 'sweet'
     },
@@ -111,10 +111,14 @@ start_img.forEach(element => {
 function food_type(type) {
     type.forEach(element => {
         area.innerHTML +=
-            `<div class="shopcard">
-        <div class="img">
-            <img src="${element.img}" alt="">
-        </div>
+        `<div class="shopcard">
+
+            <div class="img">
+                <img src="${element.img}" alt="">
+            </div>
+            <div class="shopcard-text">
+                <span>${element.name}</span>
+            </div>
     </div> `
     })
 }
