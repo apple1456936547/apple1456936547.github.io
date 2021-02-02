@@ -152,7 +152,7 @@
                     @media screen and (max-width:1860px) {
                         display:none;
                     }
-                    
+
                     .food-text3 {
                         margin-top: 20%;
                         font-size: $h2;
@@ -160,14 +160,14 @@
                     .food-text2 {
                         font-size: $h6;
                         margin-top: 20%;
-                      
+
                     }
 
                     .food-text {
                         margin-left: 40%;
                         margin-top: 20%;
                         font-size: $h6;
-                        
+
                     }
                 }
                 .food4, .food5 {
@@ -180,7 +180,6 @@
 
 .section3 {
     width: 100%;
-
     .shop {
         width: 100%;
         background-image: url("/img/04.jpg");
@@ -257,12 +256,28 @@
                     width: 30%;
                     display: flex;
                     flex-wrap: wrap;
+                    margin-top:2%;
                     @media screen and (max-width:763px) {
                         width:100%;
                     }
                     .img {
                         img {
                             width: 100%;
+                        }
+                    }
+                    .shopcard-text {
+                        width:80%;
+                        background-color:rgba(255, 192, 203, 0.6);
+                        border:1px rgba(255, 192, 203, 0.6) solid;
+                        border-radius: 50px;
+                        font-size:$h4;
+                        font-weight:600;
+                        text-align:center;
+                        margin:auto;
+                        margin-top:4%;
+                        @media screen and (max-width:768px) {
+                            font-size:$h8;
+                            width:50%;
                         }
                     }
                 }
@@ -323,7 +338,7 @@
                     }
                 }
             }
-           
+
             .card2, .card3 {
                 margin-left:1%;
                 @media screen and (max-width:964px){
@@ -341,7 +356,7 @@
         background-image: url("/img/05.jpg");
         background-size: cover;
         padding-bottom: 200px;
-        
+
         .about-title {
             width: 92%;
             font-family: Microsoft JhengHei;
@@ -358,7 +373,7 @@
             span {
                 font-size: $h1;
                 font-weight: 900;
-                
+
                 @media screen and (max-width: 768px) {
                     font-size: $h5;
                 }
@@ -455,7 +470,7 @@
                             font-size: $h5;
                             text-align:center;
                         }
-                        
+
                     }
                     #store-font-size {
                         font-size:$h5;
@@ -485,7 +500,7 @@
                     font-size: $h7;
                     font-family: Microsoft JhengHei;
                     margin-left:8%;
-                    margin-top:10%; 
+                    margin-top:10%;
                     font-weight:600;
                     @media screen and (max-width:1067px) {
                         margin-top:0;
