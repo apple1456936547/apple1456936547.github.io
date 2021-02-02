@@ -39,6 +39,36 @@
   left: 86%;
 }
 
+@media screen and (max-width: 1418px) {
+  .top {
+    left: 84%;
+  }
+}
+
+@media screen and (max-width: 1205px) {
+  .top {
+    left: 80%;
+  }
+}
+
+@media screen and (max-width: 916px) {
+  .top {
+    left: 75%;
+  }
+}
+
+@media screen and (max-width: 787px) {
+  .top {
+    left: 70%;
+  }
+}
+
+@media screen and (max-width: 694px) {
+  .top {
+    left: 65%;
+  }
+}
+
 .top:hover {
   color: #6b0a1a;
 }
