@@ -24,6 +24,14 @@
             }
         }
     }
+    .top {
+        width:300px;
+        background-color:green;
+        font-size:$h3;
+        font-weight:600;
+        position:fixed;
+        left:20px;
+    }
 }
 
 .section2 {
