@@ -112,7 +112,6 @@ function food_type(type) {
     type.forEach(element => {
         area.innerHTML +=
         `<div class="shopcard">
-
             <div class="img">
                 <img src="${element.img}" alt="">
             </div>
