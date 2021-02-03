@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/shop_card.css">
+</head>
+<body>
+    <main>
+        <!-- nav -->
+        <div class="navbar">
+            <!-- 商品分類onclick -->
+            <div id="all-shop" class="navbox">全部商品</div>
+            <div id="dessert" class="navbox">甜食</div>
+            <div id="drink" class="navbox">飲料</div>
+            <div id="food" class="navbox">主食</div>
+        </div>
+        <div class="card_group"></div>
+    </main>
+    <script>
+        var SY_goodgoodEat_Product = [
+            {
+                name: '高級紅茶',
+                img: 'https://i.epochtimes.com/assets/uploads/2014/10/1409221241502483.jpg',
+                content: '紅茶葉、水',
+                price: '1200',
+                tag1: 'drink'
+            },
+            {
+                name: '手工餅乾',
+                img: 'https://cdn2.ettoday.net/images/3629/d3629818.jpg',
+                content: '澱粉、糖',
+                price: '20',
+                tag1: 'dessert'
+            },
+            {
+                name: '珍珠奶茶',
+                img: 'https://attach.setn.com/newsimages/2018/11/06/1627152-XXL.jpg',
+                content: '奶茶、珍珠、水',
+                price: '65',
+                tag1: 'drink',
+                tag2: 'dessert'
+            },
+            {
+                name: '紅燒牛肉麵',
+                img: 'https://1.bp.blogspot.com/-4L2AeEI4x9A/XgA9c6okfMI/AAAAAAABJ-s/sXJMDKGOaY08UKCD82ioxSFQq5IC2u9PwCKgBGAsYHg/s1600/00.jpg',
+                content: '牛肉、麵條、調味料',
+                price: '180',
+                tag1: 'food'
+            },
+            {
+                name: '滷肉飯',
+                img: 'https://2.bp.blogspot.com/-VKO_fV4tzB8/WsDMatMdEQI/AAAAAAABNgc/cyaHyT2FjxY_U96pKdBcz2BMSVFPvPSPwCLcBGAs/s1600/DSC_00461.JPG',
+                content: '飯、滷肉、調味料',
+                price: '35',
+                tag1: 'food'
+            },
+            {
+                name: '蘋果派',
+                img: 'https://img-global.cpcdn.com/recipes/10860064e49c3f0b/751x532cq70/%E6%B3%95%E5%BC%8F%E8%98%8B%E6%9E%9C%E6%B4%BE-%E9%A3%9F%E8%AD%9C%E6%88%90%E5%93%81%E7%85%A7%E7%89%87.jpg',
+                content: '蘋果、派皮、糖',
+                price: '210',
+                tag1: 'dessert'
+            },
+            {
+                name: '多多綠茶',
+                img: 'https://www.85cafe.com/file/product/w500/%E5%A4%9A%E5%A4%9A%E7%B6%A0%E8%8C%B6.jpg',
+                content: '養樂多、糖、綠茶',
+                price: '50',
+                tag1: 'drink'
+            }
+        ]
+
+        var area = document.querySelector(".card_group")
+
+        var btn_shop = document.querySelector("#all-shop")
+        var btn_cake = document.querySelector("#dessert")
+        var btn_drink = document.querySelector("#drink")
+        var btn_food = document.querySelector("#food")
+        
+        // 初始頁面顯示內容
+        SY_goodgoodEat_Product.forEach(element => {
+            area.innerHTML +=
+            `<div class="cardbox">
+                <div class="img">
+                    <img src="${element.img}" alt="">
+                </div>
+
+                <div class="info">
+                    <h2>
+                        ${element.name}
+                    </h2>
+                    <div>
+                        內容物:${element.content}
+                    </div>
+                    <p>
+                        價格:${element.price}
+                    </p>
+                <div>
+            </div> `
+        })
+
+        // 全部商品按鈕 
+        btn_shop.onclick = function () {
+            area.innerHTML = ""
+            SY_goodgoodEat_Product.forEach(element => {
+                area.innerHTML +=
+                `<div class="cardbox">
+                    <div class="img">
+                        <img src="${element.img}" alt="">
+                    </div>
+                    <div class="info">
+                        <h2>
+                            ${element.name}
+                        </h2>
+                        <div>
+                            內容物:${element.content}
+                        </div>
+                        <p>
+                            價格:${element.price}
+                        </p>
+                    <div>
+                </div> `
+            })
+        }
+
+        let drink = SY_goodgoodEat_Product.filter(drink_text => drink_text.tag1 == 'drink')
+        // 飲料按鈕
+        btn_drink.onclick = function () {
+            area.innerHTML = "" 
+            drink.forEach(drink_text => {
+                area.innerHTML +=
+                `<div class="cardbox">
+                    <div class="img">
+                        <img src="${drink_text.img}" alt="">
+                    </div>
+                    <div class="info">
+                        <h2>
+                            ${drink_text.name}
+                        </h2>
+                        <div>
+                            內容物:${drink_text.content}
+                        </div>
+                        <p>
+                            價格:${drink_text.price}
+                        </p>
+                     <div>
+                </div> `
+            })
+        }
+
+        let food = SY_goodgoodEat_Product.filter(food_text => food_text.tag1 == 'food')
+        // 主食按鈕
+        btn_food.onclick = function () {
+            area.innerHTML = ""
+            food.forEach(food_text => {
+                area.innerHTML +=
+                    `<div class="cardbox">
+                <div class="img">
+                    <img src="${food_text.img}" alt="">
+                    </div>
+                <div class="info">
+                <h2>${food_text.name}</h2>
+                <div>內容物:${food_text.content}</div>
+                <p>價格:${food_text.price}</p>
+                <div>
+            </div> `
+            })
+        }
+
+        let dessert = SY_goodgoodEat_Product.filter(dessert_text => dessert_text.tag1 == 'drink' && dessert_text.tag2 == 'dessert' || dessert_text.tag1 == 'dessert' )
+        // 甜食按鈕
+        btn_cake.onclick = function () {
+            area.innerHTML = "" 
+            dessert.forEach(dessert_text => {
+                area.innerHTML +=
+                    `<div class="cardbox">
+                <div class="img">
+                    <img src="${dessert_text.img}" alt="">
+                    </div>
+                <div class="info">
+                <h2>${dessert_text.name}</h2>
+                <div>內容物:${dessert_text.content}</div>
+                <p>價格:${dessert_text.price}</p>
+                <div>
+            </div> `
+            })
+        }
+
+    </script>
+</body>
+
+</html>
