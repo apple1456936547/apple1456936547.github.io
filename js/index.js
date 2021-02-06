@@ -127,6 +127,23 @@ btn_hot_pot.onclick = function () {
     area.innerHTML = ""
     food_type(hot_pot);
 }
+// 原版火鍋卡片
+btn_hot_pot.onclick = function () {
+    area.innerHTML = ""
+    // 這裡的hot_pot是指分類器那個hot_pot
+    hot_pot.forEach(element => {
+        area.innerHTML +=
+        `<div class="shopcard">
+            <div class="img">
+                <img src="${element.img}" alt="">
+            </div>
+            <div class="shopcard-text">
+                <span>${element.name}</span>
+            </div>
+    </div> `
+    })
+}
+
 // 異國風味卡片
 btn_exotic.onclick = function () {
     area.innerHTML = ""
