@@ -82,19 +82,19 @@ var shop_food = [
 
 var area = document.querySelector(".shopcard-group")
 
-// 火鍋
+// 火鍋按鈕
 var btn_hot_pot = document.querySelector(".hot-pot")
 let hot_pot = shop_food.filter(hot_pot_text => hot_pot_text.tag1 == 'hot-pot')
 
-// 異國
+// 異國按鈕
 var btn_exotic = document.querySelector(".exotic")
 let exotic = shop_food.filter(exotic_text => exotic_text.tag1 == 'exotic')
 
-// 中式
+// 中式按鈕
 var btn_chinese = document.querySelector(".chinese")
 let chinese = shop_food.filter(chinese_text => chinese_text.tag1 == 'chinese')
 
-// 甜點
+// 甜點按鈕
 var btn_sweet = document.querySelector(".sweet")
 let sweet = shop_food.filter(sweet_text => sweet_text.tag1 == 'sweet')
 
