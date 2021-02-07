@@ -1,8 +1,4 @@
 @import "variable";
-* {
-    box-sizing: border-box;
-    margin: 0;
-}
 
 body {
     overflow-x: hidden;
@@ -50,13 +46,9 @@ section {
     // 露營照片區
     .camping-photo-card {
         width: 85%;
-
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-
-        // border: 1px black solid;
-
         margin: auto;
         margin-top: 30px;
         // 每一個照片加文字(都是一樣的)
