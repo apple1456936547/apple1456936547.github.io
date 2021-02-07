@@ -1,5 +1,6 @@
 @import "variables";
 
+// 首頁
 .section1 {
     width: 100%;
     @media screen and (max-width:500px){
@@ -12,6 +13,7 @@
             font-weight:600;
             margin-left:1%;
         }
+        // navbar-right 文字
         .collapse {
             .navbar-nav {
                 margin-right:1%;
@@ -56,8 +58,10 @@
     }
 }
 
+// 菜單頁面
 .section2 {
     width: 100%;
+    // 店內菜單標題
     .shop-menu {
         width: 100%;
         background-image: url("/img/02.jpg");
@@ -85,6 +89,7 @@
                 }
             }
         }
+        // 店內菜單圖片區塊
         .menu-box {
             min-width: 94%;
             margin: auto;
@@ -98,6 +103,7 @@
             @media screen and (max-width: 560px) {
                 width:100%;
             }
+            // 左邊大圖區塊
             .left-box {
                 width: 600px;
                 position: relative;
@@ -114,6 +120,7 @@
                 @media screen and (max-width:515px) {
                     max-width:300px;
                 }
+                // 切換圖片區塊
                 .left-box-img {
                     position: relative;
                     width: 100%;
@@ -129,6 +136,7 @@
                     align-self: center;
                 }
             }
+            // 右邊五張圖片加一個文字區塊
             .right-box {
                 max-width: 58%;
                 display: flex;
@@ -169,10 +177,6 @@
                         width:300px;
                     }
                 }
-                .food-box-bottom {
-                    color:black;
-                }
-
                 .food3 {
                     font-family: Microsoft JhengHei;
                     font-weight: 600;
@@ -182,7 +186,7 @@
                     @media screen and (max-width:1860px) {
                         display:none;
                     }
-
+                    // 菜單介紹標語人氣推薦
                     .food-text3 {
                         margin-top: 20%;
                         font-size: $h2;
@@ -200,16 +204,19 @@
 
                     }
                 }
-                .food4, .food5 {
-                    margin-top:1%;
+                .food4, .food5, .food6 {
+                    margin-top:2%;
                 }
+                
             }
         }
     }
 }
 
+// 菜品瀏覽
 .section3 {
     width: 100%;
+    // 瀏覽菜品標題
     .shop {
         width: 100%;
         background-image: url("/img/04.jpg");
@@ -235,6 +242,7 @@
                 }
             }
         }
+        // 瀏覽菜品按鈕區塊
         .shop-box {
             width: 90%;
             margin: auto;
@@ -272,6 +280,7 @@
                     }
                 }
             }
+            // 卡片群組區塊
             .shopcard-group {
                 width: 80%;
                 display: flex;
@@ -282,6 +291,7 @@
                 @media screen and (max-width:763px) {
                     flex-direction:column;
                 }
+                // 這裡的shopcard由js生出來
                 .shopcard {
                     width: 30%;
                     display: flex;
@@ -317,8 +327,10 @@
     }
 }
 
+// 最新消息
 .section4 {
     width: 100%;
+    // 最新消息標題
     .news {
         width: 100%;
         background-image: url("/img/03.jpg");
@@ -344,6 +356,7 @@
                 }
             }
         }
+        // 消息卡片群組
         .card-group {
             width: 80%;
             display: flex;
@@ -367,6 +380,11 @@
                     .card-date {
                         font-size:$h6;
                     }
+                    .card-text {
+                        margin-top:5%;
+                        font-size:$h5;
+                        line-height:40px;
+                    }
                 }
             }
 
@@ -380,8 +398,10 @@
     }
 }
 
+// 關於我們
 .section5 {
     width: 100%;
+    // 關於我們標題
     .about {
         width: 100%;
         background-image: url("/img/05.jpg");
@@ -439,7 +459,6 @@
             li {
                 font-size: $h5;
                 @media screen and (max-width:768px){
-                    // font-size:$h5;
                     font-size:$h7;
                 }
             }
@@ -447,7 +466,6 @@
                 margin-top: 1%;
                 font-size: $h6;
                 @media screen and (max-width:768px){
-                    // font-size:$h6;
                     font-size:$h7;
                 }
             }
@@ -455,6 +473,7 @@
     }
 }
 
+// 門市資訊
 .section6 {
     width: 100%;
     .store {
@@ -472,6 +491,7 @@
             @media screen and (max-width:1067px) {
                 flex-direction:column-reverse;
             }
+            // google地圖
             .map {
                 width: 60%;
                 margin:auto;

@@ -268,10 +268,6 @@
   width: 300px;
 }
 
-.section2 .shop-menu .menu-box .right-box .food-box-bottom {
-  color: black;
-}
-
 .section2 .shop-menu .menu-box .right-box .food3 {
   font-family: Microsoft JhengHei;
   font-weight: 600;
@@ -309,8 +305,8 @@
   font-size: 20px;
 }
 
-.section2 .shop-menu .menu-box .right-box .food4, .section2 .shop-menu .menu-box .right-box .food5 {
-  margin-top: 1%;
+.section2 .shop-menu .menu-box .right-box .food4, .section2 .shop-menu .menu-box .right-box .food5, .section2 .shop-menu .menu-box .right-box .food6 {
+  margin-top: 2%;
 }
 
 .section3 {
@@ -556,6 +552,12 @@
 
 .section4 .news .card-group .card .card-body .card-date {
   font-size: 20px;
+}
+
+.section4 .news .card-group .card .card-body .card-text {
+  margin-top: 5%;
+  font-size: 24px;
+  line-height: 40px;
 }
 
 .section4 .news .card-group .card2, .section4 .news .card-group .card3 {

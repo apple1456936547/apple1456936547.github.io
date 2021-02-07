@@ -85,7 +85,6 @@ var area = document.querySelector(".shopcard-group")
 
 // 火鍋按鈕
 var btn_hot_pot = document.querySelector(".hot_pot")
-// 從shop_food裡面篩選hot_pot這個分類
 let hot_pot = shop_food.filter(hot_pot_text => hot_pot_text.tag1 == 'hot_pot')
 
 // 異國按鈕
@@ -129,22 +128,6 @@ btn_hot_pot.onclick = function () {
     area.innerHTML = ""
     food_type(hot_pot);
 }
-// // 原版火鍋卡片
-// btn_hot_pot.onclick = function () {
-//     area.innerHTML = ""
-//     // 這裡的hot_pot是指分類器那個hot_pot
-//     hot_pot.forEach(element => {
-//         area.innerHTML +=
-//         `<div class="shopcard">
-//             <div class="img">
-//                 <img src="${element.img}" alt="">
-//             </div>
-//             <div class="shopcard-text">
-//                 <span>${element.name}</span>
-//             </div>
-//     </div> `
-//     })
-// }
 
 // 異國風味卡片
 btn_exotic.onclick = function () {
