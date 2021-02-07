@@ -282,6 +282,7 @@ section {
                 line-height: 60px;
                 margin: auto;
                 padding-bottom: 10px;
+                text-align:left;
                 @media screen and (max-width:768px) {
                     font-size:$h4;
                 }
@@ -345,11 +346,11 @@ section {
                 .camping-text-group {
                     width:70%;
                     margin:auto;
+                    display:flex;
+                    flex-wrap:wrap;
+                    justify-content:center;
                     div {
-                        margin-top:2%;
-                        display:flex;
-                        flex-wrap:wrap;
-                        justify-content: space-around;
+                        margin-top:2%;                        
                         @media screen and (max-width:1011px) {
                             text-align:center;
                         }
@@ -404,6 +405,7 @@ section {
                 padding-bottom: 20px;
                 margin: auto;
                 margin-top: 30px;
+                text-align:left;
                 @media screen and (max-width: 768px) {
                     font-size: $h4;
                     line-height: 40px;
