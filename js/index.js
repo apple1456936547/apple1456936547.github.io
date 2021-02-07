@@ -1,4 +1,4 @@
-// 資料
+// 菜品瀏覽一開始畫面
 var start_img = [
     {
         name: '一開始圖片1',
@@ -17,21 +17,22 @@ var start_img = [
     }
 ]
 
+// 菜品瀏覽卡片
 var shop_food = [
     {
         name: '素薑母鴨火鍋',
         img: "img/0411.jpg",
-        tag1: 'hot-pot'
+        tag1: 'hot_pot'
     },
     {
         name: '綜合湯底火鍋',
         img: "img/0412.jpg",
-        tag1: 'hot-pot'
+        tag1: 'hot_pot'
     },
     {
         name: '素當歸鴨火鍋',
         img: "img/0413.jpg",
-        tag1: 'hot-pot'
+        tag1: 'hot_pot'
     },
     {
         name: '番茄義大利麵',
@@ -83,8 +84,9 @@ var shop_food = [
 var area = document.querySelector(".shopcard-group")
 
 // 火鍋按鈕
-var btn_hot_pot = document.querySelector(".hot-pot")
-let hot_pot = shop_food.filter(hot_pot_text => hot_pot_text.tag1 == 'hot-pot')
+var btn_hot_pot = document.querySelector(".hot_pot")
+// 從shop_food裡面篩選hot_pot這個分類
+let hot_pot = shop_food.filter(hot_pot_text => hot_pot_text.tag1 == 'hot_pot')
 
 // 異國按鈕
 var btn_exotic = document.querySelector(".exotic")
@@ -127,22 +129,22 @@ btn_hot_pot.onclick = function () {
     area.innerHTML = ""
     food_type(hot_pot);
 }
-// 原版火鍋卡片
-btn_hot_pot.onclick = function () {
-    area.innerHTML = ""
-    // 這裡的hot_pot是指分類器那個hot_pot
-    hot_pot.forEach(element => {
-        area.innerHTML +=
-        `<div class="shopcard">
-            <div class="img">
-                <img src="${element.img}" alt="">
-            </div>
-            <div class="shopcard-text">
-                <span>${element.name}</span>
-            </div>
-    </div> `
-    })
-}
+// // 原版火鍋卡片
+// btn_hot_pot.onclick = function () {
+//     area.innerHTML = ""
+//     // 這裡的hot_pot是指分類器那個hot_pot
+//     hot_pot.forEach(element => {
+//         area.innerHTML +=
+//         `<div class="shopcard">
+//             <div class="img">
+//                 <img src="${element.img}" alt="">
+//             </div>
+//             <div class="shopcard-text">
+//                 <span>${element.name}</span>
+//             </div>
+//     </div> `
+//     })
+// }
 
 // 異國風味卡片
 btn_exotic.onclick = function () {
