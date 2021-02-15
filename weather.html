@@ -17,10 +17,36 @@
             margin: 0;
         }
 
+        main {
+            width: 100%;
+            background-color: rgb(216, 175, 175);
+        }
+
+        .navbar {
+            width: 100%;
+            height: 50px;
+            border: 1px black solid;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn {
+            width: 25%;
+            /* height:50px; */
+            background-color: coral;
+            text-align: center;
+        }
+
+        .btn a {
+            text-decoration: none;
+            color: black;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
         .card_group {
             width: 100%;
             height: 100%;
-            background-color: antiquewhite;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -56,7 +82,6 @@
             text-align: center;
             line-height: 30px;
         }
-
     </style>
 
 
@@ -64,53 +89,97 @@
 
 <body>
 
-    <div class="card_group"></div>
+    <main>
+        <div class="navbar">
+            <div class="btn btn1">
+                
+            </div>
+            <div class="btn btn2">
+                <a href="#">中午</a>
+            </div>
+            <div class="btn btn3">
+                <a href="#">晚上</a>
+            </div>
+        </div>
+
+        <div class="card_group"></div>
+    </main>
 
     <script>
         var area = document.querySelector(".card_group")
-        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D&format=JSON')
 
-            .then(function (response) {
-                // 處理 response
-                return response.json()
 
-            }).then(function (weather) {
+        var btns = document.querySelectorAll(".btn");
 
-                var locate = weather.records.location
-                locate.forEach(element => {
-                    var cityname = element.locationName
-                    var wx = element.weatherElement[0].time[0].parameter.parameterName
-                    var PoP = element.weatherElement[1].time[0].parameter.parameterName
-                    var MinT = element.weatherElement[2].time[0].parameter.parameterName
-                    var CI = element.weatherElement[3].time[0].parameter.parameterName
-                    var MaxT = element.weatherElement[4].time[0].parameter.parameterName
-                    var pt
-                    if (PoP == 0) {
-                        pt = "https://pic40.photophoto.cn/20160907/0017030558566807_b.jpg"
+        show(0);
+        function show(index) {
 
-                    } else if (PoP >= 50) {
-                        pt = "https://pic.90sjimg.com/design/03/24/08/48/5c92374bcc25c.png"
-                    } else {
-                        pt = "https://static.fotor.com.cn/assets/stickers/freelancer_ls_20180130_51/cdcf1df7-7103-4c00-b5f2-d43c2bafec72_medium_thumb.jpg"
-                    }
-                    area.innerHTML +=
-                        `<div class="cardbox">
+            fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D&format=JSON')
+
+                .then(function (response) {
+                    // 處理 response 
+                    return response.json()
+
+                }).then(function (weather) {
+
+                    var locate = weather.records.location
+                    area.innerHTML = '';
+
+                    console.log(locate[0].weatherElement[0].time[0].startTime);
+                    btns.forEach((btn,index)=>{
+                        btn.innerHTML=locate[0].weatherElement[0].time[index].startTime +'<br>'+locate[0].weatherElement[0].time[index].endTime;
+
+                    })
+
+                    locate.forEach(element => {
+                        var cityname = element.locationName
+                        var wx = element.weatherElement[0].time[index].parameter.parameterName
+                        var PoP = element.weatherElement[1].time[index].parameter.parameterName
+                        var MinT = element.weatherElement[2].time[index].parameter.parameterName
+                        var CI = element.weatherElement[3].time[index].parameter.parameterName
+                        var MaxT = element.weatherElement[4].time[index].parameter.parameterName
+                        var pt
+                        
+
+                        if (PoP == 0) {
+                            pt = "https://pic40.photophoto.cn/20160907/0017030558566807_b.jpg"
+
+                        } else if (PoP >= 50) {
+                            pt = "https://pic.90sjimg.com/design/03/24/08/48/5c92374bcc25c.png"
+                        } else {
+                            pt = "https://static.fotor.com.cn/assets/stickers/freelancer_ls_20180130_51/cdcf1df7-7103-4c00-b5f2-d43c2bafec72_medium_thumb.jpg"
+                        }
+
+                        // 原本的程式碼
+                        area.innerHTML +=
+                            `<div class="cardbox">
                 <div class="img">
                 <img src="${pt}" alt="">
                 </div>
                 <div class="info">
                 <p>城市:${element.locationName}</p>
-                <p>天氣現象:${element.weatherElement[0].time[0].parameter.parameterName}</p>
-                <p>降雨機率:${element.weatherElement[1].time[0].parameter.parameterName}%</p>
-                <p>最低溫度:${element.weatherElement[2].time[0].parameter.parameterName}</p>
-                <p>舒適度:${element.weatherElement[3].time[0].parameter.parameterName}</p>
-                <p>最高溫度:${element.weatherElement[4].time[0].parameter.parameterName}</p>
+                <p>天氣現象:${element.weatherElement[0].time[index].parameter.parameterName}</p>
+                <p>降雨機率:${element.weatherElement[1].time[index].parameter.parameterName}%</p>
+                <p>最低溫度:${element.weatherElement[2].time[index].parameter.parameterName}</p>
+                <p>舒適度:${element.weatherElement[3].time[index].parameter.parameterName}</p>
+                <p>最高溫度:${element.weatherElement[4].time[index].parameter.parameterName}</p>
                 <div>
             </div> `
 
-                })
 
+                    })
+
+                });
+        }
+
+        btns.forEach((btn, index) => {
+            btn.addEventListener('click', function () {
+                show(index);
             });
+
+        });
+
+
 
 
     </script>
