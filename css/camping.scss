@@ -11,7 +11,7 @@ section {
     .camping-title {
         text-align: center;
         margin: auto;
-        animation-duration: 3s;
+        animation-duration: 2s;
         animation-name: slidein;
         // span裡面的CAMPING
         span {
@@ -132,18 +132,34 @@ section {
                 // 所以改用css-animation替代
                 .fade-effect1 {
                     @media screen and (max-width: 541px) {
-                        animation-duration: 3s;
-                        animation-name: slidein;
+                        animation-duration: 2s;
+                        animation-name: zoom;
+                        animation-iteration-count:infinite;
                     }
-                    @keyframes slidein {
+                    @keyframes zoom {
                         from {
-                            padding-left: 100%;
-                            width: 300%;
+                            opacity:0;
                         }
 
                         to {
-                            padding-left: 0%;
-                            width: 100%;
+                            opacity:1;
+                        }
+                    }
+                }
+                .fade-effect2 {
+                    @media screen and (max-width: 541px) {
+                        animation-duration: 2s;
+                        animation-name: zoom;
+                        animation-delay:1s;
+                        animation-iteration-count:infinite;
+                    }
+                    @keyframes zoom {
+                        from {
+                            opacity:0;
+                        }
+
+                        to {
+                            opacity:1;
                         }
                     }
                 }
