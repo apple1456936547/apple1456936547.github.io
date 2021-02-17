@@ -1,4 +1,5 @@
 // 菜品瀏覽一開始畫面
+// 當使用者點擊左方按鈕便不會再顯示一開始的畫面除非重新整理後
 var start_img = [
     {
         name: '一開始圖片1',
@@ -83,24 +84,28 @@ var shop_food = [
 
 var area = document.querySelector(".shopcard-group")
 
-// 火鍋按鈕
-var btn_hot_pot = document.querySelector(".hot_pot")
+// 火鍋
+// 從shop_food矩陣裡面篩選出有hot_pot的東西(此為filter精簡寫法)
 let hot_pot = shop_food.filter(hot_pot_text => hot_pot_text.tag1 == 'hot_pot')
 
-// 異國按鈕
-var btn_exotic = document.querySelector(".exotic")
+// 異國
 let exotic = shop_food.filter(exotic_text => exotic_text.tag1 == 'exotic')
 
-// 中式按鈕
-var btn_chinese = document.querySelector(".chinese")
+// 中式
 let chinese = shop_food.filter(chinese_text => chinese_text.tag1 == 'chinese')
 
-// 甜點按鈕
-var btn_sweet = document.querySelector(".sweet")
+// 甜點
 let sweet = shop_food.filter(sweet_text => sweet_text.tag1 == 'sweet')
 
-// START
+// 按鈕
+var btns = document.querySelectorAll(".btn");
+
+// 分類後的食物的矩陣
+var food_filter = [hot_pot, exotic, chinese, sweet];
+
+// 菜品瀏覽一開始畫面
 start_img.forEach(element => {
+    // 在area裡面塞東西
     area.innerHTML +=
     `<div class="shopcard">
     <div class="img">
@@ -109,6 +114,7 @@ start_img.forEach(element => {
 </div> `
 })
 
+// 生出菜品瀏覽的卡片function
 function food_type(type) {
     type.forEach(element => {
         area.innerHTML +=
@@ -123,26 +129,10 @@ function food_type(type) {
     })
 }
 
-//鍋物系列卡片
-btn_hot_pot.onclick = function () {
-    area.innerHTML = ""
-    food_type(hot_pot);
-}
-
-// 異國風味卡片
-btn_exotic.onclick = function () {
-    area.innerHTML = ""
-    food_type(exotic);
-}
-
-// 中式風味卡片
-btn_chinese.onclick = function () {
-    area.innerHTML = ""
-    food_type(chinese);
-}
-
-// 甜點卡片
-btn_sweet.onclick = function () {
-    area.innerHTML = ""
-    food_type(sweet);
-}
+// 按鈕區
+btns.forEach((btn,index) => {
+    btn.addEventListener('click', function(){
+        area.innerHTML = "";
+        food_type(food_filter[index]);
+    })
+});
