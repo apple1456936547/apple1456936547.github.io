@@ -1,0 +1,982 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+<script src="https://pic03.eapple.com.tw/yk_js_web/jquery-1.11.3.min.js"></script>
+<script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+<style>
+    .all_main * {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    .all_main {
+        width: 100%;
+        font-family: 微軟正黑體;
+        border: 0;
+        text-decoration: none;
+        overflow: hidden;
+    }
+
+    .all_main img {
+        width: auto;
+        max-width: 100%;
+        vertical-align: bottom;
+    }
+
+    .edit {
+        width: 100%;
+        padding: 0px 0;
+    }
+
+    .show_content {
+        width: 100%;
+        margin: auto;
+        padding: 0px 0px;
+    }
+
+    .center_box {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+
+    .clearfix {
+        clear: both;
+    }
+
+    .all_main ul {
+        padding: 0 0;
+        margin: 0;
+    }
+
+
+    .all_main li {
+        list-style: none;
+    }
+
+    .all_main h6,
+    .all_main h5,
+    .all_main h4,
+    .all_main h3,
+    .all_main h2 {
+        margin: 0;
+    }
+
+    .all_main u {
+        text-decoration: none;
+    }
+
+    /*Animations*/
+    [data-animate-in] {
+        opacity: 0;
+        transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+
+    [data-animate-in="up"] {
+        transform: translate3d(0, 10%, 0);
+    }
+
+    /*由下往上*/
+    [data-animate-in="left"] {
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    /*由左往右*/
+    [data-animate-in="right"] {
+        transform: translate3d(50%, 0, 0);
+    }
+
+    /*由右往左*/
+    [data-animate-in="down"] {
+        transform: translate3d(0, -10%, 0);
+    }
+
+    /*由上往下*/
+    [data-animate-in="fadeIn"] {
+        transform: translate3d(0, 0, 0);
+    }
+
+    /*淡入*/
+    [data-animate-in="scaleIn"] {
+        transform: scale(.3);
+    }
+
+    /*放大淡入*/
+    [data-animate-in].in-view {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .fade-in {
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+
+    .all_main p {
+        margin: 0;
+    }
+
+    .all_main em,
+    .all_main i {
+        font-style: normal;
+    }
+
+    .all_main a {
+        text-decoration: none;
+    }
+
+    .all_main dd,
+    .all_main dt {
+        margin: 0 0;
+    }
+
+    .all_main_key_word {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .animated15 {
+        animation: none;
+    }
+
+    /* 內容 除了首頁記得把其他keyword刪掉 */
+    /* 記得刪掉/jquery-1.11.3.min.js/上面那串 */
+
+    .ss01 {
+        width: 100%;
+        background-image: url('http://pic03.eapple.com.tw/catsww/cat_world-bg005.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 76px 15px 174px 15px;
+    }
+
+    .ss02 {
+        max-width: 1200px;
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ss02 i {
+        display: block;
+        color: #798c72;
+        font-size: 40px;
+        font-family: 'Arial';
+        font-weight: 400;
+        line-height: 120%;
+        letter-spacing: 10px;
+        text-indent: 10px;
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .ss02 ul {
+        max-width: 1200px;
+        width: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 120px;
+    }
+
+    .ss02 li {
+        width: 100%;
+        background-color: #FDFBF7;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        border-radius: 55px;
+        margin-bottom: 40px;
+        box-shadow: 2px 3px 10px rgb(158, 157, 157);
+        position: relative;
+    }
+
+    .ss02 li:last-child {
+        margin: 0;
+    }
+
+    .ss02 li em {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .ss02 li u {
+        overflow: hidden;
+        transition: .4s;
+    }
+
+    .ss02 li u img {
+        transition: .4s;
+    }
+
+    .ss02 li:hover u img {
+        transition: .4s;
+        transform: scale(1.05);
+    }
+
+    .ss02 li p {
+        max-width: 540px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-right: 40px;
+        padding-top: 45px;
+    }
+
+    .ss02 li b {
+        display: block;
+        color: #444C3F;
+        font-size: 30px;
+        font-weight: 600;
+        font-family: 'Noto Sans TC', sans-serif;
+        line-height: 150%;
+        letter-spacing: 8px;
+        padding-bottom: 74px;
+        padding-left: 55px;
+    }
+
+    .ss02 li:nth-child(4) b {
+        padding-bottom: 55px;
+    }
+
+    .ss02 li span {
+        display: block;
+        width: 100%;
+        color: #333333;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 180%;
+        letter-spacing: 1px;
+    }
+
+    .ss03 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ss03 h6 {
+        display: block;
+        color: #798c72;
+        font-size: 40px;
+        font-family: 'Arial';
+        font-weight: 400;
+        line-height: 120%;
+        letter-spacing: 10px;
+        text-indent: 10px;
+        text-align: center;
+        margin-bottom: 65px;
+    }
+
+
+    .ku {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .ku li {
+        margin-bottoM: 60px;
+    }
+
+    .ku li:last-child {
+        margin: 0;
+    }
+
+    .ku .link {
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        background-color: #E0E5DF;
+        border-radius: 20px;
+        font-size: 15px;
+        color: #333333;
+        font-weight: 500;
+        line-height: 30px;
+        position: relative;
+        -webkit-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        padding: 20px 24px;
+    }
+
+    .ku .link:after {
+        content: '';
+        width: 22px;
+        height: 11px;
+        background-image: url('http://pic03.eapple.com.tw/catsww/cat_world-img058.png');
+        position: absolute;
+        right: 24px;
+        top: calc(50% - 5.5px);
+    }
+
+    .ku .link h4 {
+        position: relative;
+        padding-left: 56px;
+        color: #444E3F;
+        font-size: 25px;
+        font-weight: 600;
+        font-family: 'Noto Sans TC', sans-serif;
+        letter-spacing: 1px;
+    }
+
+    .ku .link h4:before {
+        content: '';
+        width: 41px;
+        height: 37px;
+        background-image: url('http://pic03.eapple.com.tw/catsww/cat_world-img051.png');
+        position: absolute;
+        left: 0;
+        top: calc(50% - 18.5px);
+    }
+
+    .ku li:last-child .link {
+        border-bottom: 0;
+    }
+
+    /*open later*/
+    .ku li.open .link:after {
+        transform: rotate(180deg);
+    }
+
+    /*** kup-----------------------------*/
+    .kup {
+        padding: 40px 30px 0 30px;
+        margin-top: -1px;
+        color: #333333;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 180%;
+        text-align: justify;
+        letter-spacing: 1px;
+        display: none;
+    }
+
+    .kup u {
+        display: block;
+        padding-left: 20px;
+        background-image: url('http://pic03.eapple.com.tw/catsww/cat_world-img059.png');
+        background-position: 0 16px;
+        background-repeat: no-repeat;
+    }
+
+    .ssk {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 28px;
+    }
+
+    .ssk a {
+        display: block;
+        color: #333333;
+        padding-left: 40px;
+        background-image: url('http://pic03.eapple.com.tw/catsww/cat_world-img060.png');
+        background-position: 0 8px;
+        background-repeat: no-repeat;
+        border-bottom: 1px #3F3F3F solid;
+    }
+
+    .ssk a:nth-child(2) {
+        margin-left: 20px;
+        margin-right: 35px;
+    }
+
+    .ssk02 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ssk02 dd {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        background-image: urL('http://pic03.eapple.com.tw/catsww/cat_world-img059.png');
+        background-position: 0 19px;
+        background-repeat: no-repeat;
+    }
+
+    .ssk02 i {
+        font-weight: bold;
+    }
+
+    .ssk02 strong {
+        font-weight: 400;
+    }
+
+    .ss07 {
+        max-width: 1330px;
+        width: 100%;
+        margin: auto;
+        margin-top: 190px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .ss05 {
+        max-width: 823px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ss06 {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 66px;
+    }
+
+    .ss06 h6 {
+        display: flex;
+        flex-direction: column;
+        max-width: 246px;
+        width: 100%;
+        margin-right: 55px;
+    }
+
+    .ss06 h6 b {
+        color: #444D3F;
+        font-size: 46px;
+        font-weight: 600;
+        font-family: 'Noto Sans TC', sans-serif;
+        letter-spacing: 10px;
+        text-indent: 10px;
+        text-align: center;
+    }
+
+    .ss06 h6 em {
+        color: #798C72;
+        font-size: 30px;
+        font-weight: 400;
+        font-family: 'Arial';
+        letter-spacing: 6px;
+        text-indent: 6px;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .ss06 p {
+        display: flex;
+        flex-direction: column;
+        max-width: 521px;
+        width: 100%;
+        border-left: 3px #95A48D solid;
+        padding: 13px 0;
+        padding-left: 35px;
+    }
+
+    .ss06 p a {
+        color: #333333;
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        line-height: 200%;
+        text-align: justify;
+    }
+
+    .ss05 dt {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .ss05 dt a {
+        display: block;
+        margin-right: 35px;
+        transition: .3s;
+    }
+
+    .ss05 dt a:Hover {
+        transition: .3s;
+        transform: translateY(5px);
+    }
+
+    .ss05 dt a:last-child {
+        margin: 0;
+    }
+
+    .ss05 dt a:nth-child(1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 11px 20px;
+        border: 1px #7C8C6F solid;
+        max-width: 370px;
+        width: 100%;
+        border-radius: 50px;
+    }
+
+    .ss05 dt a u {
+        display: block;
+        color: #798C72;
+        font-size: 23px;
+        font-weight: 500;
+        font-family: 'Noto Sans TC', sans-serif;
+        line-height: 120%;
+        letter-spacing: 2px;
+        padding-left: 15px;
+    }
+
+    @media (max-width:1180px) {
+        .ss02 ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ss02 li {
+            max-width: 498px;
+            width: 100%;
+            flex-direction: column-reverse;
+            padding-bottom: 60px;
+        }
+
+        .ss02 li p {
+            margin: 0;
+            margin-top: 40px;
+            padding: 0 15px;
+            align-items: center;
+        }
+
+        .ss02 li b {
+            padding: 0;
+            padding-bottom: 30px;
+        }
+
+        .ss02 li b,
+        .ss02 li span {
+            text-align: center;
+        }
+
+        .ss07 {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 120px;
+        }
+
+        .ss05 {
+            margin: 0;
+            margin-top: 120px;
+        }
+    }
+
+    @media (max-width:1024px) {
+        .ssk {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ssk a:nth-child(2) {
+            margin: 15px 0;
+        }
+
+        .kup {
+            font-size: 15px;
+        }
+
+        .kup u,
+        .ssk02 dd {
+            background-position: 0 9px;
+        }
+
+        .ssk a {
+            background-position: 0 4px;
+        }
+    }
+
+    @media (max-width:768px) {
+        .ss01 {
+            padding: 60px 15px;
+        }
+
+        .ss02 ul {
+            margin-bottom: 60px;
+        }
+
+        .kup {
+            padding: 30px 20px 0 20px;
+        }
+
+        .ku .link h4 {
+            font-size: 20px;
+        }
+
+        .ku .link {
+            border-radius: 16px;
+            padding: 16px 10px;
+        }
+
+        .ku li {
+            margin-bottom: 35px;
+        }
+
+
+        .ku .link h4 {
+            padding-right: 35px;
+            padding-left: 31px;
+            font-size: 18px;
+        }
+
+        .ku .link h4:before {
+            width: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: 7px;
+        }
+
+        .ku .link:after {
+            right: 10px;
+        }
+
+        .ss06 {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ss06 h6 {
+            margin: 0;
+            margin-bottom: 40px;
+        }
+
+        .ss06 p a {
+            font-size: 17px;
+        }
+
+        .ss05 dt {
+            justify-content: center;
+        }
+
+        .ss05 dt a {
+            margin-right: 15px;
+        }
+
+        .ss05 dt a:nth-child(1) {
+            padding: 7px 15px;
+            max-width: 246px;
+        }
+
+        .ss05 dt a:nth-child(1) u {
+            font-size: 16px;
+        }
+
+    }
+
+    @media (max-width:550px) {
+        .ss05 dt {
+            max-width: 250px;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+        }
+
+        .ss05 dt a {
+            margin: 0;
+            margin-bottom: 30px;
+        }
+
+        .ss05 dt a:last-child {
+            margin: 0;
+        }
+
+        .ss06 p {
+            padding-left: 12px;
+        }
+    }
+
+    @media (max-width:425px) {
+        .ss06 h6 b {
+            font-size: 32px;
+        }
+
+        .ss06 h6 em {
+            font-size: 22px;
+        }
+
+        .ss02 li b {
+            font-size: 25px;
+        }
+
+        .ss02 li span {
+            font-size: 18px;
+        }
+
+        .ku .link h4 {
+            padding-left: 0;
+            padding-top: 20px;
+        }
+
+        .ku .link h4:before {
+            top: 0;
+            left: auto;
+        }
+
+        .ss06 p a {
+            font-size: 16px;
+        }
+    }
+</style>
+
+<div class="all_main">
+    <div class="ss01">
+        <!-- SERVICE -->
+        <div class="ss02">
+            <i>SERVICE</i>
+            <ul>
+                <li>
+                    <em><img src="http://pic03.eapple.com.tw/catsww/cat_world-img041.png" alt=""></em>
+                    <p>
+                        <b>基礎檢查、驅蟲</b>
+                        <span>
+                            我們的貓出售都會做基本的健康檢查、驅蟲,<br>
+                            如有其他疑問都歡迎您私訊。
+                        </span>
+                    </p>
+                    <u><img src="http://pic03.eapple.com.tw/catsww/cat_world-img046.png" alt=""></u>
+                </li>
+                <li>
+                    <em><img src="http://pic03.eapple.com.tw/catsww/cat_world-img042.png" alt=""></em>
+                    <p>
+                        <b>四合一疫苗健康手冊</b>
+                        <span>貓貓們出售前會打第一劑,有任何疑問歡迎私訊。</span>
+                    </p>
+                    <u><img src="http://pic03.eapple.com.tw/catsww/cat_world-img047.png" alt=""></u>
+                </li>
+                <li>
+                    <em><img src="http://pic03.eapple.com.tw/catsww/cat_world-img043.png" alt=""></em>
+                    <p>
+                        <b>晶片登入</b>
+                        <span>貓售出後我們會幫貴客做晶片登入,
+                            登入完成會傳送登入完成資料給您。</span>
+                    </p>
+                    <u><img src="http://pic03.eapple.com.tw/catsww/cat_world-img048.png" alt=""></u>
+                </li>
+                <li>
+                    <em><img src="http://pic03.eapple.com.tw/catsww/cat_world-img044.png" alt=""></em>
+                    <p>
+                        <b>可申請血統書</b>
+                        <span>
+                            血統書申請需貓咪結紮時與醫師協商,錄影醫師幫貓咪結紮證明。<br>
+                            如有不便前來互動的貴客,我們有提供預約制的Line。
+                            線上視訊讓貴客能在視訊，裡看喵喵的活潑健康度。
+                        </span>
+                    </p>
+                    <u><img src="http://pic03.eapple.com.tw/catsww/cat_world-img049.png" alt=""></u>
+                </li>
+                <li>
+                    <em><img src="http://pic03.eapple.com.tw/catsww/cat_world-img045.png" alt=""></em>
+                    <p>
+                        <b>購買須知</b>
+                        <span>
+                            簽訂寵物買賣契約、貓咪晶片登錄<br>
+                            付款方式：現金／信用卡刷卡分期／無卡分期<br>
+                            隨附：貓飼料一包、預防針手冊一本、新手教程一張。
+                        </span>
+                    </p>
+                    <u><img src="http://pic03.eapple.com.tw/catsww/cat_world-img050.png" alt=""></u>
+                </li>
+            </ul>
+        </div>
+        <!-- QA -->
+        <div class="ss03">
+            <h6>Q&A</h6>
+            <ul id="ku" class="ku">
+                <li>
+                    <div class="link">
+                        <h4>Q1我適合養貓嗎？</h4>
+                    </div>
+                    <div class="kup">
+                        <p>貓咪對環境的變化很敏感，所以如果近期內你的生活會有太大變動就暫時不適合養貓，建議等生活穩定下來之後再養。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="link">
+                        <h4>Q2如何挑選飼養幼貓或飼養成貓？</h4>
+                    </div>
+                    <div class="kup">
+                        <p>一般而言，幼貓和成貓的特性如下（但也是要看每隻貓的個性）。</p>
+                        <u>幼貓：較愛玩，可能會有咬人等等的壞習慣，如果飼主不懂得以適當方式教導，可能會使他變本加厲。</u>
+                        <u>成貓：個性穩定，且如果他流浪過，會更珍惜有家的好，反而更加親人。</u>
+                    </div>
+                </li>
+                <li>
+                    <div class="link">
+                        <h4>Q3營養且合適貓咪的食物？</h4>
+                    </div>
+                    <div class="kup">
+                        <p>有乾糧（參考貓咪營養需求與乾糧優缺點、乾糧成分分析）和濕食（參考主食罐副食罐分析比較），乾糧雖較方便但對貓咪健康不好，新手建議餵主食罐。另外，貓是肉食性動物，不像狗狗是雜食性，因此千萬不要餵人類的食物，一來食材不符合貓咪營養需求，二來人的食物有調味料，對動物來說很傷身。
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="link">
+                        <h4>Q4貓咪喝什麼？</h4>
+                    </div>
+                    <div class="kup">
+                        <p>水要給煮過的，不可餵生水或礦泉水。要積極讓貓咪攝取足夠水分，很多貓都是水喝不夠而得腎病的</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="link">
+                        <h4>Q5貓咪需要陪伴嗎？</h4>
+                    </div>
+                    <div class="kup">
+                        <u>貓咪看似特立獨行、高冷傲嬌，但其實也會害怕孤獨，當然也需要飼主的關愛和陪伴喔；但避免毛小孩養成咬主人手腳的習慣，不要直接用手腳跟他們玩，可以用玩具。</u>
+                        <u>有的貓咪品種也許要考慮一次養兩隻以上，讓他們可以彼此陪伴、玩耍。</u>
+                    </div>
+                </li>
+                <li>
+                    <div class="link">
+                        <h4>Q6怎麼清理貓咪排泄物？</h4>
+                    </div>
+                    <div class="kup">
+                        <p>貓砂的清理包含兩部分，一個是每天的鏟屎清貓砂工作，而另一個則是定期將整盆貓砂換新並清理貓砂盆。也要注意貓砂的份量是否足夠讓貓咪把自己的尿液、大便埋起來，如果不太夠的話就要適時補砂，也不需要一次倒很滿的貓砂在貓砂盆裡，適量即可。
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="link">
+                        <h4> Q7需要幫貓咪洗澡嗎？</h4>
+                    </div>
+                    <div class="kup">
+                        <div class="ssk">
+                            <span>貓洗澡取決於兩個重點：</span>
+                            <a>確認貓咪健不健康?</a>
+                            <a>確認生活環境乾不乾淨?</a>
+                        </div>
+                        <p>可一年1～2次，但有些品種油脂分泌較旺盛，洗澡頻率要較高。貓咪很敏感，如果送去寵物美容，他們可能會因太過緊張而弄傷美容師或是自己，因此最好能學會自己在家洗澡、剃毛等等。
+                            雖然我們貓主子經過你前面長時間的賄賂，願意給你洗一下澡，但特別注意：貓咪眼睛和耳朵，不要進肥皂泡的水！會刺激貓咪眼睛的粘膜，貓咪的耳朵因為結構較為複雜，水進去很容易卡在裡面。
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="link">
+                        <h4>Q8帶貓咪回家前需要準備的物品</h4>
+                    </div>
+                    <div class="kup">
+                        <div class="ssk02">
+                            <dd>
+                                <i>寢具</i>
+                                <strong>為幼貓打造一個安全舒適的睡眠環境。有些幼貓喜歡定期更改自己睡覺的地方，因此您可能需要準備多張睡床。</strong>
+                            </dd>
+                            <dd>
+                                <i>外出籠</i>
+                                <strong>選擇一個安穩的外出籠，裡面要暗暗的，或者可以用毯子覆蓋光線，而且空間足夠讓幼貓長到成年使用。</strong>
+                            </dd>
+                            <dd>
+                                <i>用餐碗</i>
+                                <strong>大多數貓咪都喜歡陶瓷、玻璃或不銹鋼材質的碗。特別是水碗更是如此，因此建議您多放幾個碗讓貓咪自己選擇。</strong>
+                            </dd>
+                            <dd>
+                                <i>幼貓食物</i>
+                                <strong>首先，請繼續使用前飼主(本貓園)使用的食物飼料餵食幼貓。</strong>
+                            </dd>
+                            <dd>
+                                <i>貓砂盆</i>
+                                <strong>附蓋的貓砂盆最能減少貓砂溢出和臭味。同時請購買一個專用剷子來剷除便便與沙塊。</strong>
+                            </dd>
+                            <dd>
+                                <i>梳毛裝備</i>
+                                <strong>選擇適合幼貓皮毛的刷子或梳子，同時購買貓用指甲剪。</strong>
+                            </dd>
+                            <dd>
+                                <i>衛生用品</i>
+                                <strong>購買專為貓設計的牙刷和牙膏。指套牙刷也許是最好的選擇。</strong>
+                            </dd>
+                            <dd>
+                                <i>貓抓柱</i>
+                                <strong>滿足幼貓的抓抓需求，有助於挽救家具不受破壞。</strong>
+                            </dd>
+                            <dd>
+                                <i>貓跳台</i>
+                                <strong>至少有一個~兩個分支的貓跳台，能誘使貓運動並鍛鍊腦力。</strong>
+                            </dd>
+                            <dd>
+                                <i>玩具</i>
+                                <strong>選擇信譽良好的商家所製作的玩具或逗貓棒，鼓勵幼貓捕獵和玩耍。</strong>
+                            </dd>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="link">
+                        <h4>Q8帶貓咪回家前需要準備的物品</h4>
+                    </div>
+                    <div class="kup">
+                        <p>對人類產生信任、會跟人類撒嬌的友善貓咪，在是幼貓階段時就必須有足夠與母貓及兄弟姐妹的互動經驗，以及有與人類交流或是相處的經歷，所以如果您想要開始養貓咪，記得仔細觀察貓咪的生長情況，或是可以從飼養個性溫和的成貓開始唷，對貓咪與你都比較安心，挑選好的貓舍、有完善購買資訊和貓咪售後衛教，能減少在惡劣繁殖場出生的幼貓喔！
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- CONTACT -->
+        <div class="ss04">
+            <div class="ss07">
+                <h5><img src="http://pic03.eapple.com.tw/catsww/cat_world-img052.png" alt=""></h5>
+                <div class="ss05">
+                    <div class="ss06">
+                        <h6>
+                            <b>聯絡資訊</b>
+                            <em>CONTACT</em>
+                        </h6>
+                        <p>
+                            <a>合法販售：特寵業繁字第S1100028號</a>
+                            <a>府授農動保字第1110016784號</a>
+                            <a>貓舍地址：台中市沙鹿區鹿寮里福安街55號</a>
+                            <a>賞貓專線：0962-000566</a>
+                            <a>市話：(04)26625805</a>
+                            <a>LINE ID：0930010297</a>
+                        </p>
+                    </div>
+                    <dt>
+                        <a href=""><img src="http://pic03.eapple.com.tw/catsww/cat_world-img053.png"
+                                alt=""><u>MESSENGER傳送訊息</u></a>
+                        <a href=""><img src="http://pic03.eapple.com.tw/catsww/cat_world-img054.png" alt=""></a>
+                        <a href=""><img src="http://pic03.eapple.com.tw/catsww/cat_world-img055.png" alt=""></a>
+                        <a href=""><img src="http://pic03.eapple.com.tw/catsww/cat_world-img056.png" alt=""></a>
+                        <a href=""><img src="http://pic03.eapple.com.tw/catsww/cat_world-img057.png" alt=""></a>
+                    </dt>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var ku = function (el, multiple) {
+            this.el = el || {};
+            this.multiple = multiple || false;
+            var links = this.el.find('.link');
+            links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
+        }
+
+        ku.prototype.dropdown = function (e) {
+            var $el = e.data.el;
+            $this = $(this),
+                $next = $this.next();
+
+            $next.slideToggle();
+            $this.parent().toggleClass('open');
+
+            if (!e.data.multiple) {
+                $el.find('.kup').not($next).slideUp().parent().removeClass('open');
+            };
+        }
+
+        var ku = new ku($('#ku'), false);
+    });
+
+</script>

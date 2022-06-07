@@ -1,0 +1,31 @@
+<style type="text/css">
+.edit {
+    width: 100%;
+    padding: 0px 0;
+}
+.show_content {
+    width: 100%;
+    margin: auto;
+    padding: 0px 0px;
+}
+
+.center_box{ width:100%; margin:0 auto;}
+
+	
+.clearfix {
+	clear: both;
+}	
+
+
+/*----------------------------------------*/
+
+
+
+
+.about img{
+ 	width:100%;
+ 	height:auto;
+	display:block;
+}</style>
+<div class="about">
+	<img src="http://pic03.eapple.com.tw/catsww/about-g.jpg" /></div>
