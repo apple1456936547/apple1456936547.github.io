@@ -1,0 +1,840 @@
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .pageIndex .main_part {
+            border-top: none !important;
+            background-color: #fff;
+        }
+
+        .edit,
+        .show_content {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
+
+        .main_part {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .path,
+        .banner,
+        .promotion_title,
+        .clearfix,
+        .page {
+            display: none;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+
+        .all_main li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .animated15 {
+            animation: none;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        /* 記得刪掉/jquery-1.11.3.min.js/上面那串 */
+        .ff01 {
+            width: 100%;
+            display: flex;
+        }
+
+        .ff01 dd {
+            width: 50%;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img088.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .ff02 {
+            width: 50%;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img089.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .ff02 p {
+            max-width: 600px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 214px 15px 259px 154px;
+        }
+
+        .ff02 p a {
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img062.png');
+            background-position: left;
+            background-repeat: no-repeat;
+            padding: 17px 0;
+            padding-left: 145px;
+            margin-bottom: 20px;
+        }
+
+        .ff02 p b {
+            display: block;
+            color: #000000;
+            font-size: 36px;
+            font-weight: 500;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+        }
+
+        .ff02 p em {
+            color: #929292;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            padding-top: 5px;
+        }
+
+        .ff02 p span {
+            display: block;
+            color: #000000;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 200%;
+            text-align: justify;
+            padding-left: 45px;
+        }
+
+        .ff03 {
+            width: 100%;
+            padding: 85px 15px;
+        }
+
+        .ff03 dd {
+            max-width: 1415px;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ff03 dd a {
+            display: Block;
+            width: 32%;
+            text-align: center;
+        }
+
+        .ff04 {
+            width: 100%;
+            display: flex;
+        }
+
+        .ff05 {
+            width: 50%;
+            background-color: #EEEEEE;
+            padding: 233px 15px 227px 15px;
+        }
+
+        .ff05 p,
+        .ff05 span {
+            display: block;
+            max-width: 415px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .ff05 p {
+            display: flex;
+            flex-direction: column;
+            padding: 15px 0;
+            padding-left: 140px;
+            background-image: url('/img/camera-img062.png');
+            background-position: left;
+            background-repeat: no-repeat;
+            margin-bottom: 30px;
+        }
+
+        .ff05 p b {
+            color: #000000;
+            font-size: 36px;
+            font-weight: 500;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+        }
+
+        .ff05 p em {
+            color: #929292;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            padding-top: 5px;
+        }
+
+        .ff05 span {
+            display: Block;
+            color: black;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 200%;
+            padding-left: 45px;
+        }
+
+        .ff05 span a {
+            color: #3F4396;
+        }
+
+        .ff04 dd {
+            width: 50%;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img093.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .ff06 dd {
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img094.jpg');
+        }
+
+        .ff06 .ff05 {
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img081.jpg');
+        }
+
+        .ff06 .ff05 p,
+        .ff06 .ff05 span {
+            max-width: 438px;
+            width: 100%;
+            margin: 0;
+            margin-left: 140px;
+        }
+
+        .ff06 .ff05 p {
+            margin-bottom: 15px;
+        }
+
+        .ff07 {
+            padding-bottom: 0;
+        }
+
+        .ww02 {
+            padding: 0 15px;
+            padding-top: 70px;
+        }
+
+        .ww03 {
+            max-width: 1133px;
+            width: 100%;
+            margin: auto;
+            border: 3px #414396 solid;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            padding: 35px 15px 35px 45px;
+        }
+
+        .ww03 p {
+            color: #404396;
+            font-size: 18px;
+            font-weight: 500;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 180%;
+            max-width: 252px;
+            width: 100%;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img082.png');
+            background-repeat: no-repeat;
+            background-position: left;
+            padding: 25px 0;
+            padding-left: 100px;
+            margin-right: 100px;
+        }
+
+        .ww03 dd {
+            max-width: 595px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .ww03 dd a {
+            display: flex;
+            align-items: center;
+            width: 50%;
+        }
+
+        .ww03 dd a:nth-child(n+3) {
+            margin-top: 35px;
+        }
+
+        .ww03 dd a:nth-child(2n) {
+            padding-left: 30px;
+        }
+
+        .ww03 i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 16px;
+            min-width: 16px;
+            margin-right: 10px;
+        }
+
+        .ww03 u {
+            color: #000000;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+        }
+
+        .pp06 {
+            width: 100%;
+            padding: 50px 0 60px 0;
+        }
+
+        .pp06 h5 {
+            max-width: 1315px;
+            width: 100%;
+            height: 64px;
+            margin: auto;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img055.png');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .pp06 ul {
+            width: 100%;
+            display: flex;
+            margin: 45px 0;
+        }
+
+        .pp06 li:nth-child(1) {
+            width: 50.4%;
+        }
+
+        .pp06 li:nth-child(1) a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .pp06 p {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(238, 238, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #404396;
+            font-size: 25px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            letter-spacing: 1px;
+            position: absolute;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .pp06 p img {
+            margin-top: 25px;
+        }
+
+        .pp06 li:nth-child(1) a:hover p {
+            transition: 0.5s;
+            opacity: 1;
+        }
+
+        .pp06 li:last-child {
+            width: 49.6%;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .pp06 li:last-child a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            position: relative;
+        }
+
+        .pp06 dd {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(238, 238, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #404396;
+            font-size: 25px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            letter-spacing: 1px;
+            position: absolute;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .pp06 dd img {
+            margin-top: 25px;
+        }
+
+        .pp06 li:last-child a:hover dd {
+            transition: 0.5s;
+            opacity: 1;
+        }
+
+        @media (max-width:1250px) {
+
+            .ff06 .ff05 p,
+            .ff06 .ff05 span {
+                margin-left: 30px;
+                margin-right: 15px;
+            }
+        }
+
+        @media (max-width:1024px) {
+            .ff01 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ff01 dd {
+                width: 100%;
+                height: 350px;
+            }
+
+            .ff02 {
+                width: 100%;
+            }
+
+            .ff02 p {
+                max-width: 600px;
+                width: 100%;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 15px;
+            }
+
+            .ff02 p a {
+                padding: 0;
+                background-position: top;
+                padding-top: 120px;
+                align-items: center;
+            }
+
+            .ff02 p b,
+            .ff02 p em {
+                text-align: center;
+            }
+
+            .ff02 p span {
+                padding: 0;
+            }
+
+            .ff02 p b,
+            .ff05 p b {
+                font-size: 28px;
+            }
+
+            .ff02 p em,
+            .ff05 p em {
+                font-size: 18px;
+            }
+
+            .ff02 p span,
+            .ff05 span {
+                font-size: 16px;
+            }
+
+            .ff04 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ff05,
+            .ff04 dd {
+                width: 100%;
+            }
+
+            .ff05 {
+                padding: 60px 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ff041 {
+                flex-direction: column-reverse;
+            }
+
+            .ff04 dd {
+                height: 350px;
+            }
+
+            .ff05 p {
+                align-items: center;
+                background-position: top;
+                padding: 0;
+                padding-top: 120px;
+                margin: 0;
+                margin-bottom: 15px;
+            }
+
+            .ff05 span {
+                max-width: 130px;
+                padding: 0;
+            }
+
+            .ff06 .ff05 p,
+            .ff06 .ff05 span {
+                margin: 0;
+            }
+
+            .ff06 .ff05 p {
+                margin-bottom: 20px;
+            }
+
+            .ff06 .ff05 span {
+                max-width: 130px;
+            }
+
+            .pp06 dd img {
+                width: 80%;
+            }
+
+            .ww03 {
+                flex-direction: column;
+                align-items: center;
+                max-width: 450px;
+                width: 100%;
+                padding: 25px 15px;
+            }
+
+            .ww03 p {
+                margin: 0;
+                margin-bottom: 40px;
+                background-position: top;
+                padding: 0;
+                padding-top: 100px;
+                text-align: center;
+            }
+
+            .ww03 dd {
+                flex-direction: column;
+                align-items: center;
+                max-width: 300px;
+            }
+
+            .ww03 dd a:nth-child(n) {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 25px;
+            }
+
+            .www03 dd a:last-child {
+                margin: 0;
+            }
+        }
+
+        @media (max-width:768px) {
+            .ff03 {
+                padding: 50px 15px;
+            }
+
+            .ff07 {
+                padding-bottom: 0;
+            }
+
+            .ff03 dd a {
+                width: 32.5%;
+            }
+        }
+
+        @media (max-width:650px) {
+            .pp06 ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pp06 li:nth-child(n) {
+                width: 100%;
+            }
+
+            .pp06 li:nth-child(n) a p,
+            .pp06 li:nth-child(n) a dd {
+                font-size: 22px;
+            }
+
+            .pp06 dd img {
+                width: auto;
+            }
+        }
+
+        @media (max-width:425px) {
+            .pp06 dd em {
+                font-size: 18px;
+            }
+
+            .pp06 dd img {
+                width: 75%;
+                margin-top: 10px;
+            }
+        }
+
+
+        @media (max-width:425px) {
+            .ff03 dd {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ff03 dd a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .ff03 dd a:nth-child(2) {
+                margin: 30px 0;
+            }
+        }
+    </style>
+
+    <div class="all_main">
+        <div class="ff01">
+            <dd data-animate-in="left" style="transition:0.65s;"></dd>
+            <div class="ff02" data-animate-in="right" style="transition:0.65s;">
+                <p>
+                    <a>
+                        <b>空間攝影</b>
+                        <em>Space photography</em>
+                    </a>
+                    <span>
+                        依攝影需求報價<br>
+                        拍攝大型商品、空間環境攝影
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="ff03">
+            <dd>
+                <a><img src="https://pic03.eapple.com.tw/pic/camera-img090.png" alt=""></a>
+                <a><img src="https://pic03.eapple.com.tw/pic/camera-img091.png" alt=""></a>
+                <a><img src="https://pic03.eapple.com.tw/pic/camera-img092.png" alt=""></a>
+            </dd>
+        </div>
+        <div class="ff04 ff041">
+            <div class="ff05" data-animate-in="left" style="transition:0.65s;"> 
+                <p>
+                    <b>商品情境照</b>
+                    <em>Commodity situation photos</em>
+                </p>
+                <span>
+                    每張 <a>NT$300</a>元起<br>
+                    拍攝情境商品照片
+                </span>
+            </div>
+            <dd data-animate-in="right" style="transition:0.65s;"></dd>
+        </div>
+        <div class="ff04 ff06">
+            <dd data-animate-in="left" style="transition:0.65s;"></dd>
+            <div class="ff05" data-animate-in="right" style="transition:0.65s;">
+                <p>
+                    <b>商品靜態照</b>
+                    <em>Static photos of commodities</em>
+                </p>
+                <span>
+                    每張 <a>NT$300</a>元起<br>
+                    拍攝靜態商品照片
+                </span>
+            </div>
+        </div>
+        <div class="ff03 ff07">
+            <dd>
+                <a><img src="https://pic03.eapple.com.tw/pic/camera-img095.png" alt=""></a>
+                <a><img src="https://pic03.eapple.com.tw/pic/camera-img096.png" alt=""></a>
+                <a><img src="https://pic03.eapple.com.tw/pic/camera-img097.png" alt=""></a>
+            </dd>
+        </div>
+        <div class="ww02" data-animate-in="up" style="transition:1s;">
+            <div class="ww03">
+                <p>以上方案注意事項</p>
+                <dd>
+                    <a>
+                        <i><img src="https://pic03.eapple.com.tw/pic/camera-img034.png" alt=""></i>
+                        <u>彩妝造型衣服飾品攝影棚租借另計</u>
+                    </a>
+                    <a>
+                        <i><img src="https://pic03.eapple.com.tw/pic/camera-img035.png" alt=""></i>
+                        <u>攝影時間約5-6小時</u>
+                    </a>
+                    <a>
+                        <i><img src="https://pic03.eapple.com.tw/pic/camera-img036.png" alt=""></i>
+                        <u>場景主題可討論</u>
+                    </a>
+                    <a>
+                        <i><img src="https://pic03.eapple.com.tw/pic/camera-img037.png" alt=""></i>
+                        <u>車馬費另計</u>
+                    </a>
+                </dd>
+            </div>
+        </div>
+        <div class="pp06">
+            <h5></h5>
+            <ul>
+                <li>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1733&title_id=4556&group_id=368">
+                        <i><img src="https://pic03.eapple.com.tw/pic/camera-img057.jpg" alt=""></i>
+                        <p><span>雙人攝影寫真</span><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></p>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1734&title_id=4556&group_id=368">
+                        <u><img src="https://pic03.eapple.com.tw/pic/camera-img058.jpg" alt=""></u>
+                        <dd><em>個人攝影寫真</em><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></dd>
+                    </a>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1736&title_id=4556&group_id=368">
+                        <u><img src="https://pic03.eapple.com.tw/pic/camera-img059.jpg" alt=""></u>
+                        <dd><em>家除家庭照</em><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></dd>
+                    </a>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1735&title_id=4556&group_id=368">
+                        <u><img src="https://pic03.eapple.com.tw/pic/camera-img060.jpg" alt=""></u>
+                        <dd><em>商業攝影</em><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></dd>
+                    </a>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1731&title_id=4556&group_id=368">
+                        <u><img src="https://pic03.eapple.com.tw/pic/camera-img087.png" alt=""></u>
+                        <dd><em>旅行攝影</em><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></dd>
+                    </a>
+                </li>
+            </ul>
+            <h5></h5>
+        </div>
+    </div>

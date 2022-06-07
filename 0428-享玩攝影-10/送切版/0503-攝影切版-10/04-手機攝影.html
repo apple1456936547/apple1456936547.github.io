@@ -1,0 +1,1108 @@
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .pageIndex .main_part {
+            border-top: none !important;
+            background-color: #fff;
+        }
+
+        .edit,
+        .show_content {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
+
+        .main_part {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .path,
+        .banner,
+        .promotion_title,
+        .clearfix,
+        .page {
+            display: none;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+
+        .all_main li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .animated15 {
+            animation: none;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        /* 記得刪掉/jquery-1.11.3.min.js/上面那串 */
+        .cel01 {
+            width: 100%;
+            background-color: #EEEEEE;
+            padding-bottom: 78px;
+        }
+
+        .cel02 {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .cel02 h5 {
+            width: 50%;
+        }
+
+        .cel03 {
+            max-width: 525px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-right: 200px;
+            padding-left: 15px;
+        }
+
+        .cel03 p {
+            display: flex;
+            flex-direction: column;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img062.png');
+            background-repeat: no-repeat;
+            padding: 34px 0 0 0;
+            padding-left: 163px;
+        }
+
+        .cel03 p b {
+            display: block;
+            color: #000000;
+            font-size: 36px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+        }
+
+        .cel03 p em {
+            display: block;
+            color: #929292;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+        }
+
+        .cel03 span {
+            display: block;
+            width: 100%;
+            color: #000000;
+            font-size: 20px;
+            font-weight: 300;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 200%;
+            letter-spacing: 1px;
+            margin: 30px 0 38px 0;
+            padding-left: 55px;
+        }
+
+        .cel03 a:last-child {
+            margin-left: 55px;
+        }
+
+        .cel04 {
+            width: 100%;
+            display: flex;
+            margin-bottom: 125px;
+        }
+
+        .cel05 {
+            width: 50%;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img066.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .cel06 {
+            width: 60%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 75px 32px 85px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cel06 b {
+            display: block;
+            color: #414396;
+            font-size: 30px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            margin-bottom: 35px;
+        }
+
+        .cel06 h5 {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .cel06 h5 i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 16px;
+            min-width: 16px;
+            margin-right: 10px;
+            position: relative;
+            top: 11px;
+        }
+
+        .cel06 h5 span {
+            color: #000000;
+            font-size: 18px;
+            font-weight: 300;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 200%;
+        }
+
+        .cel04 dd {
+            width: 50%;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img065.jpg');
+            background-position: center;
+            background-size: cover
+        }
+
+        .cel07 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .cel07 .yt_btn01 {
+            display: block;
+            width: 67.35%;
+        }
+
+        .cel08 {
+            width: 47.5%;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-bg007.png');
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 0;
+        }
+
+        .cel08 p {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img062.png');
+            background-repeat: no-repeat;
+            background-position: left;
+            padding: 10px 0;
+            padding-left: 150px;
+        }
+
+        .cel08 p b {
+            color: #000000;
+            font-size: 36px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            letter-spacing: 1px;
+        }
+
+        .cel08 p em {
+            display: Block;
+            color: #404396;
+            font-size: 30px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            letter-spacing: 1px;
+            padding-top: 10px;
+        }
+
+        .cel08 dd {
+            max-width: 556px;
+            width: 100%;
+            color: #000000;
+            font-size: 19px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 180%;
+            text-align: justify;
+            padding-bottom: 30px;
+        }
+
+        .cel08 dt {
+            max-width: 365px;
+            width: 100%;
+            height: 145px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .cel08 dt a {
+            display: flex;
+            align-items: center;
+            color: #000000;
+            font-size: 19px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 400;
+            line-height: 180%;
+        }
+
+        .cel08 dt a i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 16px;
+            min-width: 16px;
+        }
+
+        .cel08 dt a img {
+            margin-right: 10px;
+        }
+
+        .cel08 .yt_btn02 {
+            display: block;
+            margin-top: 35px;
+        }
+
+        .cel09 {
+            width: 100%;
+        }
+
+        .cel10 {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .cel10 h5 {
+            width: 50%;
+        }
+
+        .cel11 .cel03 span {
+            width: 100%;
+        }
+
+        .cel12 {
+            margin: 0;
+        }
+
+        .cel12 dd {
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img070.jpg');
+        }
+
+        .cel12 .cel05 {
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img071.jpg');
+        }
+
+        .cel12 .cel06 {
+            padding: 146px 60px 207px 60px;
+        }
+
+        .cel12 .cel06 b {
+            margin-bottom: 75px;
+        }
+
+        .cel13 {
+            width: 100%;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-bg008.jpg');
+            background-position: center;
+            background-size: cover;
+            padding: 185px 15px 0 15px;
+            margin-bottom: 30px;
+        }
+
+        .cel13 ul {
+            max-width: 1325px;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .cel13 li {
+            display: flex;
+            align-items: flex-start;
+            width: 50%;
+            margin-bottom: 80px;
+        }
+
+        .cel13 li:last-child {
+            width: 100%;
+            margin: 0;
+        }
+
+        .cel13 u {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 123px;
+            min-width: 123px;
+            margin-right: 5px;
+        }
+
+        .cel13 p {
+            max-width: 445px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 15px 20px 35px;
+            border-left: 1px #404396 solid;
+            height: 220px;
+        }
+
+        .cel13 p b {
+            display: Block;
+            color: #404396;
+            font-size: 20px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 400;
+            line-height: 200%;
+        }
+
+        .cel13 p span {
+            color: #000000;
+            font-size: 18px;
+            font-weight: 300;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 200%;
+            text-align: justify;
+        }
+
+        .cel13 li:last-child p {
+            max-width: 100%;
+        }
+
+        .cel13 li:nth-child(2n) {
+            padding-left: 20px;
+        }
+
+        .pp06 {
+            width: 100%;
+            padding: 50px 0 60px 0;
+        }
+
+        .pp06 h5 {
+            max-width: 1315px;
+            width: 100%;
+            height: 64px;
+            margin: auto;
+            background-image: url('https://pic03.eapple.com.tw/pic/camera-img055.png');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .pp06 ul {
+            width: 100%;
+            display: flex;
+            margin: 45px 0;
+        }
+
+        .pp06 li:nth-child(1) {
+            width: 50.4%;
+        }
+
+        .pp06 li:nth-child(1) a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .pp06 p {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(238, 238, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #404396;
+            font-size: 25px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            letter-spacing: 1px;
+            position: absolute;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .pp06 p img {
+            margin-top: 25px;
+        }
+
+        .pp06 li:nth-child(1) a:hover p {
+            transition: 0.5s;
+            opacity: 1;
+        }
+
+        .pp06 li:last-child {
+            width: 49.6%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .pp06 li:last-child a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            position: relative;
+        }
+
+        .pp06 dd {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(238, 238, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #404396;
+            font-size: 25px;
+            font-weight: 400;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 120%;
+            letter-spacing: 1px;
+            position: absolute;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .pp06 dd img {
+            margin-top: 25px;
+        }
+
+        .pp06 li:last-child a:hover dd {
+            transition: 0.5s;
+            opacity: 1;
+        }
+
+        @media (max-width:1500px) {
+            .cel03 {
+                margin-right: 30px;
+            }
+        }
+
+        @media (max-width:1200px) {
+            .cel01 {
+                padding-top: 60px;
+            }
+
+            .cel02 {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 15px;
+            }
+
+            .cel02 h5 {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 35px;
+            }
+
+            .cel03 {
+                max-width: 1000px;
+                margin: 0;
+                margin-bottom: 35px;
+                padding: 0;
+            }
+
+            .cel03 span {
+                padding-left: 0;
+            }
+
+            .cel03 a:last-child {
+                margin-left: 0;
+            }
+
+            .cel04 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cel04 dd {
+                max-width: 100%;
+                width: 100%;
+                height: 350px;
+            }
+
+            .cel05 {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .cel06 {
+                max-width: 100%;
+                width: 50%;
+                padding: 50px 15px;
+            }
+
+            .cel07 {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 15px;
+            }
+
+            .cel07 .yt_btn01 {
+                max-width: 1347px;
+                width: 100%;
+                margin-bottom: 35px;
+            }
+
+            .cel08 {
+                max-width: 1347px;
+                width: 100%;
+                position: static;
+                background-size: cover;
+                background-position: center;
+                padding: 40px 15px;
+            }
+
+            .cel09 {
+                padding: 60px 0;
+            }
+
+            .cel11 h5 {
+                max-width: 100%;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width:1150px) {
+            .cel13 ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cel13 li:nth-child(n) {
+                padding: 0;
+                margin: 0;
+                margin-bottom: 35px;
+                max-width: 600px;
+                width: 100%;
+            }
+
+            .cel13:last-child {
+                margin: 0;
+            }
+
+            .cel13 li:nth-child(n) p {
+                max-width: 100%;
+                height: auto;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width:1024px) {
+            .cel06 {
+                width: 100%;
+                padding: 50px 15px;
+            }
+
+            .cel06 h5 span {
+                font-size: 16px;
+            }
+
+            .cel06 h5 img {
+                top: 7px;
+            }
+
+            .cel12 .cel06 {
+                padding: 60px 15px;
+            }
+
+            .cel06 b {
+                font-size: 25px;
+            }
+
+            .cel12 .cel06 b {
+                margin-bottom: 40px;
+            }
+
+            .pp06 dd img {
+                width: 80%;
+            }
+        }
+
+        @media (max-width:768px) {
+            .cel09 {
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .cel13 {
+                margin: 0;
+                padding: 15px 15px 0 15px;
+            }
+
+            .cel13 li {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cel13 li u {
+                margin: 0;
+                margin-bottom: 25px;
+            }
+        }
+
+        @media (max-width:650px) {
+            .pp06 ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pp06 li:nth-child(n) {
+                width: 100%;
+            }
+
+            .pp06 li:nth-child(n) a p,
+            .pp06 li:nth-child(n) a dd {
+                font-size: 22px;
+            }
+
+            .pp06 dd img {
+                width: auto;
+            }
+        }
+
+        @media (max-width:500px) {
+
+            .cel02 p,
+            .cel08 p {
+                background-position: top;
+                padding: 0;
+                padding-top: 130px;
+                align-items: center;
+            }
+
+            .cel02 p em,
+            .cel08 p em {
+                padding-top: 10px;
+                text-align: center;
+                font-size: 22px;
+            }
+
+            .cel03 p b,
+            .cel08 p b {
+                font-size: 28px;
+            }
+
+            .cel04 {
+                margin-bottom: 40px;
+            }
+
+            .cel08 dt {
+                height: auto;
+            }
+        }
+
+        @media (max-width:425px) {
+            .pp06 dd em {
+                font-size: 18px;
+            }
+
+            .pp06 dd img {
+                width: 75%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+    
+    <div class="all_main">
+        <div class="cel01">
+            <div class="cel02">
+                <div class="cel03" data-animate-in="left" style="transition:0.65s;">
+                    <p>
+                        <b>手機拍照基礎班</b>
+                        <em>Base class</em>
+                    </p>
+                    <span>
+                        一堂課就讓你學會光、構圖、創意拍攝、修圖、引導
+                        你也可以是手機攝影達人!!!
+                    </span>
+                    <a href="https://www.youtube.com/watch?v=0rOdIHPbdik&t=1s"><img src="https://pic03.eapple.com.tw/pic/camera-img063.png"
+                            alt=""></a>
+                </div>
+                <h5 data-animate-in="right" style="transition:0.65s;"><img src="https://pic03.eapple.com.tw/pic/camera-img064.jpg" alt=""></h5>
+            </div>
+            <div class="cel04">
+                <dd data-animate-in="left" style="transition:0.65s;"></dd>
+                <div class="cel05"  data-animate-in="right" style="transition:0.65s;">
+                    <div class="cel06">
+                        <b>九大手機旅遊攝影重點學習</b>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img034.png" alt=""></i>
+                            <span>
+                                基本操作(調整曝光、亮暗測光、景深應用)
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img035.png" alt=""></i>
+                            <span>
+                                長曝主題教學(星空、螢火蟲、車軌、髮絲流水)
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img036.png" alt=""></i>
+                            <span>
+                                光線認知應用
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img037.png" alt=""></i>
+                            <span>
+                                變焦模式應用
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img038.png" alt=""></i>
+                            <span>
+
+                                常用構圖教學<br>
+                                (井字構圖/中央構圖/3分構圖/延伸構圖/對稱構圖)
+
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img039.png" alt=""></i>
+                            <span>
+                                拍照引導及姿勢擺拍
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img040.png" alt=""></i>
+                            <span>
+                                旅行趣味拍攝(借位創意/跳拍/天空之鏡)
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img041.png" alt=""></i>
+                            <span>
+                                修圖教學(去背/雜物刪除/一鍵換天空/疊圖重複曝光)
+                            </span>
+                        </h5>
+                        <h5>
+                            <i> <img src="https://pic03.eapple.com.tw/pic/camera-img042.png" alt=""></i>
+                            <span>
+                                戶外實拍
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="cel07">
+                <a data-animate-in="left" style="transition:0.5s;" class="yt_btn01" href="https://www.youtube.com/watch?v=1rby6oLPncM"><img
+                        src="https://pic03.eapple.com.tw/pic/camera-img067.jpg" alt=""></a>
+                <div class="cel08" data-animate-in="right" style="transition:0.65s;">
+                    <p>
+                        <b>手機錄影剪輯班</b>
+                        <em>想學會錄影不需要價格高昂的設備！</em>
+                    </p>
+                    <dd>
+                        想要用影片記錄生活、記錄旅行、或是成為一個入門的youtuber、或是想要用影片打造自己、增加自家產品曝光<br>
+                        都需要會剪輯這件事~<br>
+                        錄影+剪輯只要一支手機就可搞定<br>
+                        享玩攝影手機剪輯班<br>
+                        可以學到的手機錄影+影片剪輯技巧：
+                    </dd>
+                    <dt>
+                        <a>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img034.png" alt=""></i>
+                            <u>運鏡轉場</u>
+                        </a>
+                        <a>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img035.png" alt=""></i>
+                            <u>特效添加</u>
+                        </a>
+                        <a>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img036.png" alt=""></i>
+                            <u>關鍵偵</u>
+                        </a>
+                        <a>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img037.png" alt=""></i>
+                            <u>畫中畫</u>
+                        </a>
+                        <a>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img038.png" alt=""></i>
+                            <u>蒙版</u>
+                        </a>
+                        <a>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img039.png" alt=""></i>
+                            <u>添加合法音樂音效</u>
+                        </a>
+                        <a>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img040.png" alt=""></i>
+                            <u>快速增加字幕</u>
+                        </a>
+                        <a>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img041.png" alt=""></i>
+                            <u>錄影觀念解說</u>
+                        </a>
+                    </dt>
+                    <a class="yt_btn02" href="https://www.youtube.com/watch?v=1rby6oLPncM"><img
+                            src="https://pic03.eapple.com.tw/pic/camera-img068.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="cel09">
+            <div class="cel10">
+                <div class="cel02 cel11">
+                    <div class="cel03" data-animate-in="left" style="transition:0.65s">
+                        <p>
+                            <b>戶外人像手機攝影班</b>
+                            <em>Program</em>
+                        </p>
+                        <span>
+                            時裝外拍／古裝外拍／晚上夜拍<br>
+                            總是苦於不能用手機把可愛的女朋友或老婆給拍美美嗎?不知該怎麼引導動作?
+                        </span>
+                        <a href="https://www.youtube.com/watch?v=0rOdIHPbdik&t=1s"><img src="https://pic03.eapple.com.tw/pic/camera-img068.png"
+                                alt=""></a>
+                    </div>
+                    <h5 data-animate-in="right" style="transition:0.7s"><img src="https://pic03.eapple.com.tw/pic/camera-img069.jpg" alt=""></h5>
+                </div>
+            </div>
+            <div class="cel04 cel12">
+                <dd data-animate-in="left" style="transition:0.65s"></dd>
+                <div class="cel05" data-animate-in="right" style="transition:0.65s">
+                    <div class="cel06">
+                        <b>實際外景拍攝上課內容及細節</b>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img034.png" alt=""></i>
+                            <span>
+                                學習引導
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img035.png" alt=""></i>
+                            <span>找尋光影</span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img036.png" alt=""></i>
+                            <span>
+                                構圖實拍
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img037.png" alt=""></i>
+                            <span>
+                                成品檢討
+                            </span>
+                        </h5>
+                        <h5>
+                            <i><img src="https://pic03.eapple.com.tw/pic/camera-img038.png" alt=""></i>
+                            <span>修圖教學</span>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cel13">
+            <ul>
+                <li data-animate-in="down" style="transition:1s">
+                    <u><img src="https://pic03.eapple.com.tw/pic/camera-img072.png" alt=""></u>
+                    <p>
+                        <b>雙人攝影寫真</b>
+                        <span>
+                            不管閨蜜、情侶、夫妻、結婚婚紗，都可以以主題的方式來進行拍攝，我們除了有漢服、旗袍、婚紗外，還有正統的日本和服搭配獨一無二的手工花結，來拍攝最正統美麗的日式婚服寫真照
+                        </span>
+                    </p>
+                </li>
+                <li data-animate-in="down" style="transition:1s">
+                    <u><img src="https://pic03.eapple.com.tw/pic/camera-img073.png" alt=""></u>
+                    <p>
+                        <b>個人攝影寫真</b>
+                        <span>
+                            為您的美麗時光留下紀錄，透過專業攝影師拍攝專屬的寫真攝影。無論是日式寫真、主題人像寫真、寶寶寫真。
+                        </span>
+                    </p>
+                </li>
+                <li data-animate-in="down" style="transition:1s">
+                    <u><img src="https://pic03.eapple.com.tw/pic/camera-img074.png" alt=""></u>
+                    <p>
+                        <b>家族家庭照</b>
+                        <span>
+                            拍下自然又漂亮的家族紀念照，輕鬆又活潑的方式來呈現家族紀念。
+                        </span>
+                    </p>
+                </li>
+                <li data-animate-in="down" style="transition:1s">
+                    <u><img src="https://pic03.eapple.com.tw/pic/camera-img075.png" alt=""></u>
+                    <p>
+                        <b>商業攝影</b>
+                        <span>
+                            自己拍不如交給專業團隊，我們價格優惠實在且深具質感，您不用忙於行銷又要拍攝多項的商品、目錄使用照片。
+                        </span>
+                    </p>
+                </li>
+                <li data-animate-in="down" style="transition:1s">
+                    <u><img src="https://pic03.eapple.com.tw/pic/camera-img076.png" alt=""></u>
+                    <p>
+                        <b>旅行紀錄</b>
+                        <span>
+                            旅行當中有個攝影師，並且還是當地的旅行達人+吃貨，除了帶妳走不為外人所知的秘境外，還能幫妳留下有溫度且美麗的照片，更帶你吃真正好吃的當地美食並且幽默又不失專業的介紹花蓮當地風俗民情，讓你開心的享受玩樂~讓你漂亮的旅行攝影!
+                        </span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="pp06">
+            <h5></h5>
+            <ul>
+                <li>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1733&title_id=4556&group_id=368">
+                        <i><img src="https://pic03.eapple.com.tw/pic/camera-img057.jpg" alt=""></i>
+                        <p><span>雙人攝影寫真</span><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></p>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1734&title_id=4556&group_id=368">
+                        <u><img src="https://pic03.eapple.com.tw/pic/camera-img058.jpg" alt=""></u>
+                        <dd><em>個人攝影寫真</em><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></dd>
+                    </a>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1736&title_id=4556&group_id=368">
+                        <u><img src="https://pic03.eapple.com.tw/pic/camera-img059.jpg" alt=""></u>
+                        <dd><em>家除家庭照</em><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></dd>
+                    </a>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1735&title_id=4556&group_id=368">
+                        <u><img src="https://pic03.eapple.com.tw/pic/camera-img060.jpg" alt=""></u>
+                        <dd><em>商業攝影</em><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></dd>
+                    </a>
+                    <a
+                        href="http://www.enjoypic.com.tw/paper/other_select_index.php?id=1731&title_id=4556&group_id=368">
+                        <u><img src="https://pic03.eapple.com.tw/pic/camera-img087.png" alt=""></u>
+                        <dd><em>旅行攝影</em><img src="https://pic03.eapple.com.tw/pic/camera-img056.png" alt=""></dd>
+                    </a>
+                </li>
+            </ul>
+            <h5></h5>
+        </div>
+    </div>
