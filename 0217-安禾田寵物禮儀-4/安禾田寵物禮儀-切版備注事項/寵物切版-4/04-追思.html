@@ -1,0 +1,194 @@
+
+    <script src="https://pic03.eapple.com.tw/yk_js_web/jquery-1.11.3.min.js"></script>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .pageIndex .main_part {
+            border-top: none !important;
+            background-color: #fff;
+        }
+
+        .edit,
+        .show_content {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
+
+        .main_part {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .path,
+        .banner,
+        .promotion_title,
+        .clearfix,
+        .page {
+            display: none;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        .kk01 {
+            width: 100%;
+        }
+
+        .kk02 {
+            max-width: 1300px;
+            width: 100%;
+            margin: auto;
+            padding: 84px 15px;
+            padding-bottom: 65px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .kk02 i {
+            display: block;
+            width: 32%;
+        }
+
+        @media (max-width:1024px) {
+            .kk02 {
+                padding: 60px 15px;
+            }
+        }
+
+        @media (max-width:768px) {
+            .kk02 {
+                flex-direction: column;
+                align-items:center;
+            }
+
+            .kk02 i {
+                width:100%;
+                text-align:center;
+            }
+
+            .kk02 i:nth-child(2) {
+                margin:35px 0;
+            }
+        }
+    </style>
+
+    <div class="all_main">
+        <div class="kk01"><img src="https://pic03.eapple.com.tw/a0909211607/pe-bg008.png" alt=""></div>
+        <div class="kk02">
+            <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img054.png" alt=""></i>
+            <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img055.png" alt=""></i>
+            <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img056.png" alt=""></i>
+        </div>
+    </div>

@@ -1,0 +1,771 @@
+
+    <script src="https://pic03.eapple.com.tw/yk_js_web/jquery-1.11.3.min.js"></script>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .pageIndex .main_part {
+            border-top: none !important;
+            background-color: #fff;
+        }
+
+        .edit,
+        .show_content {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
+
+        .main_part {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .path,
+        .banner,
+        .promotion_title,
+        .clearfix,
+        .page {
+            display: none;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        .cc01 {
+            width: 100%;
+        }
+
+        .cc02 {
+            width: 100%;
+            padding: 177px 15px;
+            padding-bottom: 62px;
+        }
+
+        .cc03 {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 116px 65px 92px 95px;
+            box-shadow: 3px 2px 10px rgba(26, 74, 41, 0.3);
+            display: flex;
+            justify-content: center;
+            margin-bottom: 44px;
+            border-top: 3px #4CACAC solid;
+            position: relative;
+        }
+
+        .cc03::before {
+            content: "";
+            width: 150px;
+            height: 150px;
+            background-image: url('https://pic03.eapple.com.tw/a0909211607/pe-img039.png');
+            position: absolute;
+            left: calc(50% - 75px);
+            top: -75px;
+        }
+
+        .cc04 {
+            width: 50%;
+            display: Flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cc04 b {
+            display: block;
+            color: #4EADAD;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 150%;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .cc04 span {
+            display: Block;
+            color: #4CACAC;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 150%;
+            text-align: center;
+            margin-bottom: 13px;
+        }
+
+        .cc04 p {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .cc04 p::after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-image: url('https://pic03.eapple.com.tw/a0909211607/pe-img051.png');
+            position: absolute;
+            bottom: 0;
+        }
+
+        .cc04 p u {
+            display: block;
+            color: #666666;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 255%;
+            min-width: 110px;
+            margin-left: 68px;
+        }
+
+        .cc04 p i {
+            display: block;
+            color: #333333;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 255%;
+            min-width: 100px;
+            margin-right: 64px;
+        }
+
+        .cc04 h5 {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            color: #444444;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        .cc04 h5 img {
+            margin-right: 6px;
+            position: relative;
+            top: 3px;
+        }
+
+        .cc04:nth-child(2) {
+            max-width: 458px;
+            margin-left: 180px;
+            position: relative;
+        }
+
+        .cc04:nth-child(2)::before {
+            content: "";
+            width: 1px;
+            height: 100%;
+            background-color: #4EADAD;
+            position: absolute;
+            left: -104px;
+        }
+
+        .cc04:nth-child(2) span {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .cc05 {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .cc06 {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 24px 62px 24px;
+            box-shadow: 1px 8px 10px rgba(26, 74, 41, 0.3);
+            border-top: 3px #4CACAC solid;
+        }
+
+        .cc07 {
+            max-width: 314px;
+            width: 100%;
+            display: Flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cc07 i {
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .cc07 p {
+            display: Flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cc07 p img {
+            margin-right: 10px;
+        }
+
+        .cc07 p em {
+            display: block;
+            color: #4DACAC;
+            font-size: 45px;
+            font-weight: 400;
+            line-height: 120%;
+        }
+
+        .cc07 dt {
+            display: Flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: 43px;
+        }
+
+        .cc07 dt u {
+            display: block;
+            text-align: right;
+            min-width: 111px;
+            color: #333333;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 180%;
+        }
+
+        .cc07 dt a {
+            display: flex;
+            align-items: center;
+            max-width: 195px;
+            width: 100%;
+        }
+
+        .cc06:nth-child(2),
+        .cc06:nth-child(3) {
+            margin-top: 35px;
+            padding-left: 55px;
+        }
+
+        .cc06:nth-child(2) .cc07,
+        .cc06:nth-child(3) .cc07 {
+            max-width: 321px;
+        }
+
+        .cc06:nth-child(2) .cc07 dt,
+        .cc06:nth-child(3) .cc07 dt {
+            left: 0;
+        }
+
+        .cc06:nth-child(3) .cc07 {
+            align-items: flex-start;
+        }
+
+        .cc06:nth-child(4) {
+            margin-top: 35px;
+        }
+
+        .cc06:nth-child(4) .cc07 dt u {
+            min-width: 126px;
+        }
+
+        .cc06:nth-child(1) .cc07 i,
+        .cc06:nth-child(4) .cc07 i {
+            position: relative;
+            left: 40px;
+        }
+
+        .cc06:nth-child(4) .cc07 dt:nth-child(5) u {
+            max-width: 105px;
+        }
+
+        .cc06:nth-child(1) .cc07 p:nth-child(4),
+        .cc06:nth-child(4) .cc07 p:nth-child(4) {
+            margin-top: 20px;
+        }
+
+        .cc06:nth-child(4) .cc07 dt:nth-last-child(3) u {
+            margin-left: 10px;
+        }
+
+        .cc06:nth-child(4) .cc07 dt u {
+            min-width: 100px;
+        }
+
+        .cc06:nth-child(4) .cc07 dt:nth-child(3) u {
+            min-width: 130px;
+        }
+
+        .cc09 {
+            max-width:1200px;
+            width:100%;
+            margin:auto;
+            margin-top:35px;
+            display:flex;
+            align-items:center;
+        }
+
+        .cc10 {
+            max-width:650px;
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            box-shadow: 1px 8px 10px rgba(26, 74, 41, 0.3);
+            border-top:3px #4CACAC solid;
+            padding:66px 15px 44px 15px;
+            margin-right:80px;
+        }
+
+        .cc10 i {
+            display:block;
+            margin-bottom:44px;
+        }
+
+        .cc11 {
+            max-width:339px;
+            width:100%;
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+        }
+
+        .cc11 p {
+            display:flex;
+            justify-content: flex-start;
+            align-items:center;
+            margin-bottom:15px;
+            align-self:flex-start;
+        }
+
+        .cc11 p em {
+            display:block;
+            color:#4CACAC;
+            font-size:45px;
+            font-weight:400;
+            line-height:120%;
+        }
+
+        .cc11 p img {
+            margin-right:8px;
+        }
+
+        .cc11 dt {
+            display:Flex;
+            align-items:center;
+        }
+
+        .cc11 dt b {
+            display:block;
+            color:#333333;
+            font-size:20px;
+            line-height:180%;
+            min-width:120px;
+            margin-left:10px;
+        }
+
+        @media (max-width:1200px) {
+            .cc06 {
+                flex-direction: column-reverse;
+                align-items: center;
+                padding: 35px 20px;
+            }
+
+            .cc07 {
+                margin-top: 45px;
+            }
+
+            .cc06:nth-child(n+2) {
+                padding: 35px 20px;
+            }
+
+            .cc06:nth-child(1) .cc07 i,
+            .cc06:nth-child(4) .cc07 i {
+                position: static;
+                display: flex;
+            }
+
+            .cc07 dt {
+                position: static;
+            }
+        }
+
+        @media (max-width:1024px) {
+            .cc03 {
+                flex-direction: column;
+                align-items: center;
+                padding: 45px 30px;
+                padding-top: 120px;
+            }
+
+            .cc04:nth-child(n) {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+            }
+
+            .cc04:nth-child(2) {
+                margin-top: 45px;
+            }
+
+            .cc04:nth-child(2)::before {
+                display: none;
+            }
+
+            .cc04 p {
+                max-width: 400px;
+                justify-content: flex-start;
+            }
+
+            .cc04 p u {
+                margin: 0;
+                margin-right: 20px;
+            }
+
+            .cc07 p em {
+                font-size: 30px;
+            }
+
+            .cc07 dt a {
+                margin: 15px 0;
+            }
+
+            .cc06:nth-child(2),
+            .cc06:nth-child(3) {
+                padding-bottom: 50px;
+            }
+
+            .cc09 {
+                flex-direction: column;
+                align-items:center;
+            }
+
+            .cc10 {
+                margin:0;
+                margin-bottom:50px;
+            }
+
+            .cc11 p {
+                align-self: center;
+            }
+
+            .cc11 p em {
+                font-size:30px;
+            }
+        }
+
+        @media (max-width:768px) {
+            .cc02 {
+                padding: 60px 15px;
+                padding-top: 100px;
+            }
+
+            .cc11 h5 {
+                width:100%;
+                text-align:center;
+            }
+        }
+
+        @media (max-width:600px) {
+            .cc06:nth-child(3) .cc07 {
+                align-items: center;
+            }
+
+            .cc07 dt {
+                position: static;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-bottom: 4px;
+            }
+
+            .cc07 dt u {
+                text-align: center;
+            }
+
+            .cc07 dt:nth-child(3) {
+                margin-bottom: 35px;
+            }
+
+            .cc11 dt {
+                flex-direction: column;
+                align-items:center;
+            }
+
+            .cc11 dt img {
+                margin:10px 0;
+            }
+
+            .cc11 dt b {
+                margin:0;
+                text-align:center;
+            }
+        }
+
+        @media (max-width:425px) {
+            .cc03 {
+                padding: 45px 15px;
+                padding-top: 100px;
+            }
+        }
+    </style>
+
+    <div class="all_main">
+        <div class="cc01"><img src="https://pic03.eapple.com.tw/a0909211607/pe-bg006.png" alt=""></div>
+        <div class="cc02">
+            <div class="cc03" data-animate-in="up" style="transition: 1s;">
+                <div class="cc04">
+                    <b>個別羽化</b>
+                    <span>
+                        到府接送 | 環保往生被 | 誦經超渡 |<br>
+                        免費贈送環保骨灰袋
+                    </span>
+                    <p>
+                        <u>1公斤以下</u>
+                        <i>$3,000元</i>
+                    </p>
+                    <p>
+                        <u>10公斤以下</u>
+                        <i>$3,500元</i>
+                    </p>
+                    <p>
+                        <u>20公斤以下</u>
+                        <i>$4,000元</i>
+                    </p>
+                    <p>
+                        <u>30公斤以下</u>
+                        <i>$5,000元</i>
+                    </p>
+                    <p>
+                        <u>30公斤以上</u>
+                        <i>面議</i>
+                    </p>
+                </div>
+                <div class="cc04">
+                    <b>團體羽化</b>
+                    <span>
+                        到府接送 | 環保往生被 | 誦經超渡
+                    </span>
+                    <h5>
+                        <img src="https://pic03.eapple.com.tw/a0909211607/pe-img052.png" alt="">
+                        <em>寵物團體火化由本園擇日火化圓滿入土回歸，寵靈安置園區。</em>
+                    </h5>
+                    <p>
+                        <u>10公斤以下</u>
+                        <i>$1,500元</i>
+                    </p>
+                    <p>
+                        <u>20公斤以下</u>
+                        <i>$2,000元</i>
+                    </p>
+                    <p>
+                        <u>30公斤以下</u>
+                        <i>$3,000元</i>
+                    </p>
+                    <p>
+                        <u>30公斤以上</u>
+                        <i>面議</i>
+                    </p>
+                </div>
+            </div>
+            <div class="cc05">
+                <div class="cc06" data-animate-in="up" style="transition: 1s;">
+                    <div class="cc07">
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img040.png" alt=""></i>
+                        <p>
+                            <img src="https://pic03.eapple.com.tw/a0909211607/pe-img042.png" alt="">
+                            <em>團體樹葬</em>
+                        </p>
+                        <dt>
+                            <a><img src="https://pic03.eapple.com.tw/a0909211607/pe-img053.png" alt=""></a>
+                            <u>$1,500元</u>
+                        </dt>
+                        <p>
+                            <img src="https://pic03.eapple.com.tw/a0909211607/pe-img042.png" alt="">
+                            <em>個別樹葬</em>
+                        </p>
+                        <dt>
+                            <a><img src="https://pic03.eapple.com.tw/a0909211607/pe-img053.png" alt=""></a>
+                            <u>$3,500元起</u>
+                        </dt>
+                    </div>
+                    <dd><img src="https://pic03.eapple.com.tw/a0909211607/pe-img041.png" alt=""></dd>
+                </div>
+                <div class="cc06" data-animate-in="up" style="transition: 1s;">
+                    <div class="cc07">
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img043.png" alt=""></i>
+                        <p>
+                            <img src="https://pic03.eapple.com.tw/a0909211607/pe-img042.png" alt="">
+                            <em>多肉植物盆栽</em>
+                        </p>
+                        <dt>
+                            <a><img src="https://pic03.eapple.com.tw/a0909211607/pe-img053.png" alt=""></a>
+                            <u>$1,500元</u>
+                        </dt>
+                    </div>
+                    <dd><img src="https://pic03.eapple.com.tw/a0909211607/pe-img044.png" alt=""></dd>
+                </div>
+                <div class="cc06" data-animate-in="up" style="transition: 1s;">
+                    <div class="cc07">
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img045.png" alt=""></i>
+                        <p>
+                            <img src="https://pic03.eapple.com.tw/a0909211607/pe-img042.png" alt="">
+                            <em>紀念品</em>
+                        </p>
+                        <dt>
+                            <a><img src="https://pic03.eapple.com.tw/a0909211607/pe-img053.png" alt=""></a>
+                            <u>$1,000元起</u>
+                        </dt>
+                    </div>
+                    <dd><img src="https://pic03.eapple.com.tw/a0909211607/pe-img046.png" alt=""></dd>
+                </div>
+                <div class="cc06" data-animate-in="up" style="transition: 1s;">
+                    <div class="cc07">
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img047.png" alt=""></i>
+                        <p>
+                            <img src="https://pic03.eapple.com.tw/a0909211607/pe-img042.png" alt="">
+                            <em>個別盆葬</em>
+                        </p>
+                        <dt>
+                            <a><img src="https://pic03.eapple.com.tw/a0909211607/pe-img053.png" alt=""></a>
+                            <u>園區$3,500元</u>
+                        </dt>
+                        <p>
+                            <img src="https://pic03.eapple.com.tw/a0909211607/pe-img042.png" alt="">
+                            <em>團體盆葬</em>
+                        </p>
+                        <dt>
+                            <a><img src="https://pic03.eapple.com.tw/a0909211607/pe-img053.png" alt=""></a>
+                            <u>$1,000元</u>
+                        </dt>
+                    </div>
+                    <dd><img src="https://pic03.eapple.com.tw/a0909211607/pe-img048.png" alt=""></dd>
+                </div>
+                <div class="cc09" data-animate-in="up" style="transition: 1s;">
+                    <div class="cc10">
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img049.png" alt=""></i>
+                        <div class="cc11">
+                            <p>
+                                <img src="https://pic03.eapple.com.tw/a0909211607/pe-img042.png" alt="">
+                                <em>晉塔</em>
+                            </p>
+                            <dt>
+                                <img src="https://pic03.eapple.com.tw/a0909211607/pe-img053.png" alt="">
+                                <b>$4,000元/年</b>
+                            </dt>
+                        </div>
+                    </div>
+                    <h5><img src="https://pic03.eapple.com.tw/a0909211607/pe-img050.png" alt=""></h5>
+                </div>
+            </div>
+        </div>
+    </div>

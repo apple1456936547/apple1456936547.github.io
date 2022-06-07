@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/jquery-1.11.3.min.js"></script>
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .pageIndex .main_part {
+            border-top: none !important;
+            background-color: #fff;
+        }
+
+        .edit,
+        .show_content {
+            width: 100%;
+            padding: 0;
+            margin: auto;
+        }
+
+        .main_part {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .path,
+        .banner,
+        .promotion_title,
+        .clearfix,
+        .page {
+            display: none;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        .ss01 {
+            width: 100%;
+        }
+
+        .ss02 {
+            width: 100%;
+            background-image: url('https://pic03.eapple.com.tw/a0909211607/pe-bg003.jpg');
+            background-position: center;
+            background-size: cover;
+            padding: 94px 15px;
+        }
+
+        .ss03 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 182px;
+        }
+
+        .ss03 p {
+            display: flex;
+            flex-direction: column;
+            margin-right: 25px;
+        }
+
+        .ss03 b {
+            display: block;
+            color: #246838;
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 150%;
+            position: relative;
+        }
+
+        .ss03 b::before {
+            content: "";
+            width: 188px;
+            height: 120px;
+            background-image: url('https://pic03.eapple.com.tw/a0909211607/pe-img018.png');
+            position: absolute;
+            left: -80px;
+            top: -109px;
+        }
+
+        .ss03 span {
+            display: block;
+            color: #333333;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 150%;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .ss03 i {
+            position: relative;
+            left: -54px;
+        }
+
+        .ss04 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .ss04 dt {
+            margin-right: 30px;
+        }
+
+        .ss05 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* icon */
+        .ss05 i {
+            display: block;
+            margin-right: 16px;
+        }
+
+        .ss05 p {
+            display: flex;
+            align-items: center;
+        }
+
+        .ss05 p a {
+            display: Flex;
+            flex-direction: column;
+        }
+
+        .ss05 p b {
+            display: block;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 150%;
+        }
+
+        .ss05 p span {
+            display: block;
+            max-width: 350px;
+            width: 100%;
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 150%;
+            text-align: justify;
+        }
+
+        .ss07 {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 40px;
+        }
+
+        .ss06 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ss06 p {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ss06 h5 {
+            display: flex;
+            flex-direction: column;
+            margin-top: 28px;
+        }
+
+        .ss06 h5 a {
+            display: flex;
+            align-items: center;
+        }
+
+        .ss06 h5 a:nth-child(1) {
+            margin-bottom: 15px;
+        }
+
+        .ss06 h5 em {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 95px;
+            height: 35px;
+            background-color: white;
+            color: #377939;
+            font-size: 18px;
+            line-height: 180%;
+            text-align: center;
+            margin-right: 13px;
+        }
+
+        .ss05 h5 u {
+            display: block;
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 180%;
+            letter-spacing: 1.2px;
+        }
+
+        .ss08 {
+            width: 100%;
+            background-image: url('https://pic03.eapple.com.tw/a0909211607/pe-bg005.jpg');
+            background-position: center;
+            background-size: cover;
+            padding: 140px 15px;
+            padding-bottom: 85px;
+        }
+
+        .ss08 ul {
+            max-width: 1300px;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 440px;
+        }
+
+        .ss08 li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 49%;
+            background-color: white;
+            padding: 80px 45px 108px 46px;
+            border-radius: 35px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .ss08 li p {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ss08 li p i {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 94px;
+            margin-bottom: 15px;
+        }
+
+        .ss08 li p span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 70px;
+            background-color: #37793B;
+            color: #ECD36C;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 120%;
+            text-align: center;
+            border-radius: 50px;
+            letter-spacing: 10px;
+            text-indent: 10px;
+        }
+
+        .ss08 dd {
+            margin: 36px 0 46px 0;
+        }
+
+        .ss09 {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .ss10 {
+            width: 100%;
+            background-color: #37793B;
+            border-radius: 35px;
+            padding: 60px 74px 46px 218px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 77px;
+            position: relative;
+            left:15px;
+        }
+
+        .ss10:last-child {
+            margin: 0;
+        }
+
+        .ss10:nth-child(n+2) {
+            padding: 70px 40px 73px 218px;
+        }
+
+        .ss10 dt {
+            width: 44.8%;
+            position: absolute;
+            left: -40px;
+            top: calc(50% - 112px);
+        }
+
+        .ss10 h5 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ss10 h5 a {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 13px;
+        }
+
+        .ss10 h5 a em {
+            display: block;
+            color: #ECD36C;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 120%;
+            margin-right: 5px;
+            position: relative;
+            bottom: 3px;
+        }
+
+        .ss10 h5 a b {
+            display: block;
+            color: #ECD36C;
+            font-size: 30px;
+            font-weight: 400;
+            line-height: 120%;
+        }
+
+        .ss10 h5 span {
+            display: block;
+            color: white;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 120%;
+        }
+
+        .ss10 u {
+            position: absolute;
+            right: 28px;
+            bottom: 12px;
+        }
+
+        .ss08 li:nth-child(2) .ss10 {
+            background-color: #ECD36C;
+        }
+
+        .ss08 li:nth-child(2) h5 em,
+        .ss08 li:nth-child(2) h5 b,
+        .ss08 li:nth-child(2) span {
+            color: #194A27;
+        }
+
+        .ss08 li:nth-child(2) p span {
+            background-color: #ECD36C;
+            color: #194A28;
+        }
+
+        .ss08 li:nth-child(2) .ss10 {
+            padding: 57px 68px 28px 218px;
+        }
+
+        .ss08 li:nth-child(2) .ss10:nth-child(n+2) {
+            padding: 74px 80px 73px 218px;
+        }
+
+        .ss08 li:nth-child(2) .ss10 span {
+            color: #333333;
+        }
+
+        .ss11 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ss12 {
+            max-width: 1100px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .ss13 {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .ss13 h5 {
+            margin-left: 15px;
+        }
+
+        .ss12 p {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 60px;
+        }
+
+        .ss12 b {
+            display: block;
+            color: #246638;
+            font-size: 35px;
+            font-weight: 400;
+            line-height: 150%;
+            text-align: justify;
+            position: relative;
+        }
+
+        .ss12 b::before {
+            content:"";
+            width:188px;
+            height:120px;
+            background-image: url('https://pic03.eapple.com.tw/a0909211607/pe-img034.png');
+            position: absolute;
+            top:-108px;
+            left:-69px;
+        }
+
+        .ss12 span {
+            display: block;
+            max-width: 641px;
+            width: 100%;
+            color: #333333;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 180%;
+            text-align: justify
+        }
+
+        .ss13 u {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 197px;
+            width: 100%;
+            background-color: #37793A;
+            height: 68px;
+            border-radius: 50px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 150%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .ss13 dt {
+            display: Flex;
+            flex-direction: column;
+            padding-left: 15px;
+        }
+
+        .ss13 dt a {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .ss13 dt a i {
+            display: block;
+            position: absolute;
+            left: -15px;
+        }
+
+        .ss13 p span {
+            display: block;
+            max-width: 641px;
+            width: 100%;
+        }
+
+        .ss13 h6 {
+            margin-left: 66px;
+        }
+
+        @media (max-width:1250px) {
+            .ss08 li:nth-child(n) .ss10:nth-child(n) {
+                padding-right: 30px;
+                padding-left: 204px;
+            }
+        }
+
+        @media (max-width:1200px) {
+            .ss03 {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 100px;
+                margin-bottom: 65px;
+            }
+
+            .ss03 p {
+                margin: 0;
+                margin-bottom: 55px;
+            }
+
+            .ss04 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ss04 dt {
+                margin: 0;
+                margin-bottom: 60px;
+            }
+
+            .ss08 ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ss08 li:nth-child(n) {
+                max-width: 636px;
+                width: 100%;
+            }
+
+            .ss08 li:nth-child(1) {
+                margin-bottom: 60px;
+            }
+
+            .ss08 ul {
+                margin-bottom: 60px;
+            }
+
+            .ss12 b::before {
+                position: static;
+                display:block;
+                margin-bottom:15px;
+            }
+        }
+
+        @media (max-width:768px) {
+            .ss03 {
+                padding: 0;
+            }
+
+            .ss03 p b::before {
+                position: static;
+                display: block;
+                margin-bottom: 18px;
+            }
+
+            .ss03 i {
+                position: static;
+                display: block;
+                margin-top: 20px;
+            }
+
+            .ss05 p {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ss05 p i {
+                margin: 0;
+                margin-bottom: 25px;
+            }
+
+            .ss07 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ss07 i {
+                margin: 0;
+                margin-bottom: 25px;
+            }
+
+            .ss05 p b {
+                font-size: 24px;
+            }
+
+            .ss05 p span {
+                font-size: 17px;
+            }
+
+            .ss06 p {
+                align-items: flex-start;
+            }
+
+            .ss05 h5 u {
+                font-size: 17px;
+            }
+
+            .ss08 li:nth-child(n) .ss10:nth-child(n) {
+                flex-direction: column;
+                align-items: center;
+                padding:35px 25px;
+            }
+
+            .ss08 ul .ss10 dt {
+                position: static;
+                display:block;
+                width:100%;
+                text-align:center;
+                margin-bottom:30px;
+            }
+
+            .ss08 li h5 a {
+                flex-direction: column;
+                align-items:center;
+            }
+
+            .ss13 {
+                flex-direction: column;
+                align-items:center;
+            }
+
+            .ss13 h5, .ss13 h6 {
+                margin:0;
+            }
+
+            .ss13 h5 {
+                margin:35px 0;
+            }
+
+            .ss08 li {
+                padding:30px 20px;
+            }
+
+            .ss08 li:nth-child(n) .ss10 {
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all_main">
+        <div class="ss01"><img src="https://pic03.eapple.com.tw/a0909211607/pe-bg004.jpg" alt=""></div>
+        <div class="ss02">
+            <div class="ss03">
+                <p data-animate-in="left" style="transition:0.6s">
+                    <b>臨終諮詢</b>
+                    <span>
+                        提供用心專業的服務，完全針對家長的需要，<br>
+                        您可放心託付由我們做最完善的規劃與安排。
+                    </span>
+                    <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img037.png" alt=""></i>
+                </p>
+                <dd data-animate-in="right" style="transition:0.65s"><img src="https://pic03.eapple.com.tw/a0909211607/pe-img019.png" alt=""></dd>
+            </div>
+            <div class="ss04">
+                <dt data-animate-in="left" style="transition:0.6s"><img src="https://pic03.eapple.com.tw/a0909211607/pe-img020.png" alt=""></dt>
+                <div class="ss05" data-animate-in="right" style="transition:0.65s">
+                    <p>
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img021.png" alt=""></i>
+                        <a>
+                            <b>專人接體服務</b>
+                            <span>
+                                收到家長委託後，立即到達現場接送，並將遺體送往安置，陪伴寶貝的最後一刻。
+                            </span>
+                        </a>
+                    </p>
+                    <div class="ss07">
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img022.png" alt=""></i>
+                        <div class="ss06">
+                            <p>
+                                <b>往生室暫置｜大體冰存</b>
+                                <span>
+                                    寶貝於往生室暫置，並將大體放置冰庫保存，與家長溝通細節之後，另作安排吉日，以進行遺體火化。
+                                </span>
+                            </p>
+                            <h5>
+                                <a>
+                                    <em>個別火化</em>
+                                    <u>待主人預約火化日。</u>
+                                </a>
+                                <a>
+                                    <em>團體火化</em>
+                                    <u>由本園擇日火化不另通知。</u>
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ss08">
+            <ul>
+                <li data-animate-in="left" style="transition:0.6s">
+                    <p>
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img024.png" alt=""></i>
+                        <span>植葬</span>
+                    </p>
+                    <dd><img src="https://pic03.eapple.com.tw/a0909211607/pe-img026.png" alt=""></dd>
+                    <div class="ss09">
+                        <div class="ss10">
+                            <dt><img src="https://pic03.eapple.com.tw/a0909211607/pe-img028.png" alt=""></dt>
+                            <h5>
+                                <a>
+                                    <em>stop.02</em>
+                                    <b>植葬處理</b>
+                                </a>
+                                <span>
+                                    植葬會將骨灰放在環保袋一起下葬。
+                                </span>
+                            </h5>
+                            <u><img src="https://pic03.eapple.com.tw/a0909211607/pe-img027.png" alt=""></u>
+                        </div>
+                        <div class="ss10">
+                            <dt><img src="https://pic03.eapple.com.tw/a0909211607/pe-img029.png" alt=""></dt>
+                            <h5>
+                                <a>
+                                    <em>step.03</em>
+                                    <b>植葬完成</b>
+                                </a>
+                            </h5>
+                            <u><img src="https://pic03.eapple.com.tw/a0909211607/pe-img027.png" alt=""></u>
+                        </div>
+                        <div class="ss10">
+                            <dt><img src="https://pic03.eapple.com.tw/a0909211607/pe-img030.png" alt=""></dt>
+                            <h5>
+                                <a>
+                                    <em>step.04</em>
+                                    <b>園區盆葬照護</b>
+                                </a>
+                            </h5>
+                            <u><img src="https://pic03.eapple.com.tw/a0909211607/pe-img027.png" alt=""></u>
+                        </div>
+                    </div>
+                </li>
+                <li data-animate-in="right" style="transition:0.65s">
+                    <p>
+                        <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img025.png" alt=""></i>
+                        <span>晉塔</span>
+                    </p>
+                    <dd><img src="https://pic03.eapple.com.tw/a0909211607/pe-img026.png" alt=""></dd>
+                    <div class="ss09">
+                        <div class="ss10">
+                            <dt><img src="https://pic03.eapple.com.tw/a0909211607/pe-img031.png" alt=""></dt>
+                            <h5>
+                                <a>
+                                    <em>step.01</em>
+                                    <b>聽經聞法</b>
+                                </a>
+                                <span>
+                                    骨灰暫時盒裝，放置塔位上聽經聞法(貓狗分開)，待頭七後擇日下葬。
+                                </span>
+                            </h5>
+                            <u><img src="https://pic03.eapple.com.tw/a0909211607/pe-img027.png" alt=""></u>
+                        </div>
+                        <div class="ss10">
+                            <dt><img src="https://pic03.eapple.com.tw/a0909211607/pe-img032.png" alt=""></dt>
+                            <h5>
+                                <a>
+                                    <em>step.01</em>
+                                    <b>骨灰裝甕</b>
+                                </a>
+                            </h5>
+                            <u><img src="https://pic03.eapple.com.tw/a0909211607/pe-img027.png" alt=""></u>
+                        </div>
+                        <div class="ss10">
+                            <dt><img src="https://pic03.eapple.com.tw/a0909211607/pe-img033.png" alt=""></dt>
+                            <h5>
+                                <a>
+                                    <em>step.02</em>
+                                    <b>寵物晉塔</b>
+                                </a>
+                            </h5>
+                            <u><img src="https://pic03.eapple.com.tw/a0909211607/pe-img027.png" alt=""></u>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="ss11">
+                <div class="ss12">
+                    <p data-animate-in="left" style="transition:0.6s">
+                        <b>後續關懷/超度誦經法會</b>
+                        <span>
+                            每年舉辦一次大型的法會，為家長傳達內心對寶貝的愛意，並為寶貝乞求最圓滿的福報，最終將悲傷的心情，化作溫暖的記憶。
+                            每年二次法會
+                        </span>
+                    </p>
+                    <div class="ss13" data-animate-in="left" style="transition:0.65s">
+                        <div class="ss14">
+                            <u>貼心服務</u>
+                            <dt>
+                                <a>
+                                    <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img038.png" alt=""></i>
+                                    <span>備有專車</span>
+                                </a>
+                                <a>
+                                    <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img038.png" alt=""></i>
+                                    <span>備有冷藏櫃以供擇日處理</span>
+                                </a>
+                                <a>
+                                    <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img038.png" alt=""></i>
+                                    <span>永續經營，土地合法</span>
+                                </a>
+                                <a>
+                                    <i><img src="https://pic03.eapple.com.tw/a0909211607/pe-img038.png" alt=""></i>
+                                    <span>
+                                        若主人無法前來送別毛小孩，<br>
+                                        園區將會拍下過程給主人
+                                    </span>
+                                </a>
+                            </dt>
+                        </div>
+                        <h5><img src="https://pic03.eapple.com.tw/a0909211607/pe-img035.png" alt=""></h5>
+                        <h6><img src="https://pic03.eapple.com.tw/a0909211607/pe-img036.png" alt=""></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
