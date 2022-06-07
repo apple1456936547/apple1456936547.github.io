@@ -1,0 +1,22 @@
+<style type="text/css">
+/* -- reset module8 -- */
+.edit,
+.show_content,
+.main_part { width: auto !important; max-width: 100% !important; margin: auto !important; padding: 0px !important;}
+.pageIndex .main_part { border:none !important; }
+.path,
+.banner { display:none;}
+/* -- reset module8 end -- */
+
+.products-box{max-width: 1200px;padding: 50px 20px;margin: auto;}
+
+/*--------------------00_基本設定--------------------*/
+
+.box_container {width: 100%;overflow: hidden;font-family:"微軟正黑體";font-size:18px;border: 0;text-decoration: none;line-height:180%;letter-spacing: 1px;color:#222222;}
+.box_container * {box-sizing: border-box;max-width: 100%;padding:0;margin:0;/*米字號所有物件的意思*/}
+.all_box {width: 90%;max-width:1200px;margin: 0 auto;}
+.fish_clear{clear:both;}
+.box_container img{width: 100%;}</style>
+<div class="box_container">
+	<img alt="" src="https://pic03.eapple.com.tw/fukdup/demo_001.jpg" /></div>
+<!-- https://pic03.eapple.com.tw/aaa/aaa.png -->

@@ -1,0 +1,669 @@
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://pic03.eapple.com.tw/yk_js_web/scrollfade.js"></script>
+    <style>
+        .all_main * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .all_main {
+            width: 100%;
+            font-family: 微軟正黑體;
+            border: 0;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .all_main img {
+            width: auto;
+            max-width: 100%;
+            vertical-align: bottom;
+        }
+
+        .edit,
+        .show_content,
+        .main_part {
+            width: auto !important;
+            max-width: 100% !important;
+            margin: auto !important;
+            padding: 0px !important;
+        }
+
+        .pageIndex .main_part {
+            border: none !important;
+        }
+
+        .path,
+        .banner {
+            display: none;
+        }
+
+        /* -- reset module8 end -- */
+
+        .products-box {
+            max-width: 1200px;
+            padding: 50px 20px;
+            margin: auto;
+        }
+
+        /*--------------------00_基本設定--------------------*/
+
+        .box_container {
+            width: 100%;
+            overflow: hidden;
+            font-family: "微軟正黑體";
+            font-size: 18px;
+            border: 0;
+            text-decoration: none;
+            line-height: 180%;
+            letter-spacing: 1px;
+            color: #222222;
+        }
+
+        .box_container * {
+            box-sizing: border-box;
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+            /*米字號所有物件的意思*/
+        }
+
+        .all_box {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fish_clear {
+            clear: both;
+        }
+
+        .box_container img {
+            width: 100%;
+        }
+
+        .all_main ul {
+            padding: 0 0;
+            margin: 0;
+        }
+
+
+        .all_main li {
+            list-style: none;
+        }
+
+        .all_main h6,
+        .all_main h5,
+        .all_main h4,
+        .all_main h3,
+        .all_main h2 {
+            margin: 0;
+        }
+
+        .all_main u {
+            text-decoration: none;
+        }
+
+        /*Animations*/
+        [data-animate-in] {
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        [data-animate-in="up"] {
+            transform: translate3d(0, 10%, 0);
+        }
+
+        /*由下往上*/
+        [data-animate-in="left"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+
+        /*由左往右*/
+        [data-animate-in="right"] {
+            transform: translate3d(50%, 0, 0);
+        }
+
+        /*由右往左*/
+        [data-animate-in="down"] {
+            transform: translate3d(0, -10%, 0);
+        }
+
+        /*由上往下*/
+        [data-animate-in="fadeIn"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        /*淡入*/
+        [data-animate-in="scaleIn"] {
+            transform: scale(.3);
+        }
+
+        /*放大淡入*/
+        [data-animate-in].in-view {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .all_main p {
+            margin: 0;
+        }
+
+        .all_main em,
+        .all_main i {
+            font-style: normal;
+        }
+
+        .all_main a {
+            text-decoration: none;
+        }
+
+        .all_main dd,
+        .all_main dt {
+            margin: 0 0;
+        }
+
+        .all_main_key_word {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .animated15 {
+            animation: none;
+        }
+
+        /* 內容 除了首頁記得把其他keyword刪掉 */
+        /* 記得刪掉/jquery-1.11.3.min.js/上面那串 */
+        .in01 {
+            width: 100%;
+            background-image: url('https://pic03.eapple.com.tw/fukdup/chicken-bg001.jpg');
+            background-position: center;
+            background-size: cover;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .in01 h5 {
+            width: 50%;
+        }
+
+        .inp {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15px;
+        }
+
+        .inp p {
+            max-width: 558px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inp b {
+            display: block;
+            margin-bottom: 70px;
+        }
+
+        .inp p u {
+            display: flex;
+            align-items: flex-end;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Noto Serif TC', serif;
+            line-height: 170%;
+            text-shadow: 1px 1px 8px black;
+            padding-left: 55px;
+            background-image: url('https://pic03.eapple.com.tw/fukdup/chicken-img002.png');
+            background-repeat: no-repeat;
+            background-position: left;
+            margin-bottom: 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .inp p u::after {
+            content: "";
+            width: 204px;
+            height: 23px;
+            background-image: url('https://pic03.eapple.com.tw/fukdup/chicken-img003.png');
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 34px;
+            bottom: -5px;
+            z-index: -1;
+        }
+
+        .inp p em {
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 160%;
+            text-align: justify;
+        }
+
+        .inp p em:nth-child(3) {
+            margin-bottom: 40px;
+        }
+
+        .inp p em:last-child {
+            margin-top: 30px;
+        }
+
+        .in02 {
+            width: 100%;
+            background-image: url('https://pic03.eapple.com.tw/fukdup/chicken-bg002.jpg');
+            background-position: center;
+            background-size: cover;
+            padding: 0 15px 140px 0;
+            position: relative;
+        }
+
+        .in02 i {
+            position: absolute;
+            right: -470px;
+            bottom: 140px;
+            animation-name: rotate_soup;
+            animation-duration: 2.5s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            /* animation-direction: alternate; */
+            z-index: 500;
+        }
+
+        @keyframes rotate_soup {
+            0% {
+                right: -470px;
+                transform: rotate(0deg);
+            }
+
+            100% {
+                right: -179px;
+                transform: rotate(-360deg);
+            }
+        }
+
+        .in021 {
+            max-width: 1490px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .in03 {
+            max-width: 844px;
+            width: 100%;
+            padding-bottom: 70px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .in03 dd {
+            max-width: 233px;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: row-reverse;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .in03 dd b,
+        .in03 dd em,
+        .in03 dd span {
+            writing-mode: vertical-rl;
+            color: white;
+        }
+
+        .in03 dd b {
+            color: white;
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Noto Serif TC', serif;
+            line-height: 160%;
+        }
+
+        .in03 dd em {
+            color: white;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 160%;
+            margin-left: 13px;
+        }
+
+        .in03 dd span {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 160%;
+        }
+
+        .in03 dd span a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .in04 {
+            max-width: 480px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-self: flex-end;
+        }
+
+        .in04 em {
+            display: block;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            line-height: 160%;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .in04 em::before {
+            content: "";
+            width: 255px;
+            height: 101px;
+            background-image: url('https://pic03.eapple.com.tw/fukdup/chicken-img006.png');
+            position: absolute;
+            top: -70px;
+            left: -105px;
+            z-index: -1;
+        }
+
+        .in04 span {
+            display: block;
+            color: white;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 160%;
+            margin: 5px 0 35px 0;
+        }
+
+        .in04 p {
+            display: flex;
+            flex-direction: column;
+            padding-left: 108px;
+            background-image: url('https://pic03.eapple.com.tw/fukdup/chicken-img007.png');
+            background-position: left;
+            background-repeat: no-repeat;
+        }
+
+        .in04 p:nth-child(4) {
+            margin: 40px 0;
+        }
+
+        .in04 p b {
+            color: white;
+            font-size: 24px;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 500;
+            line-height: 160%;
+        }
+
+        .in04 p strong {
+            color: white;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 160%;
+        }
+
+        @media (max-width:1800px) {
+            .in021 {
+                max-width: 1350px;
+            }
+
+            .in03 {
+                max-width: 750px;
+            }
+        }
+
+        @media (max-width:1660px) {
+            .in021 {
+                max-width: 1250px;
+            }
+
+            .in04 {
+                max-width: 400px;
+                position: relative;
+                z-index: 999;
+            }
+        }
+
+        @media (max-width:1580px) {
+            .in02 i {
+                display: block;
+                width: 28vw;
+            }
+
+            .in04 p {
+                text-shadow: 1px 1px 3px black;
+            }
+        }
+
+        @media (max-width:1480px) {
+            .in021 {
+                max-width: 1120px;
+            }
+
+            .in03 {
+                max-width: 600px;
+                padding-bottom: 120px;
+            }
+        }
+
+        @media (max-width:1330px) {
+            .in03 {
+                padding-bottom: 220px;
+            }
+        }
+
+        @media (max-width:1200px) {
+            .in01 {
+                flex-direction: column;
+                align-items: center;
+                padding: 50px 15px;
+            }
+
+            .in01 h5,
+            .inp {
+                width: 100%;
+                padding: 0;
+            }
+
+            .inp {
+                max-width: 961px;
+                margin-bottom: 50px;
+            }
+
+            .inp p {
+                max-width: 100%;
+            }
+
+            .in01 h5 {
+                text-align: center;
+            }
+
+            .in02 i {
+                width: auto;
+            }
+        }
+
+        @media (max-width:1150px) {
+
+            .in021 {
+                flex-direction: column;
+            }
+
+            .in03 {
+                max-width: 844px;
+                width: 100%;
+                padding-bottom: 70px;
+                margin-bottom: 200px;
+            }
+
+            .in04 {
+                align-self: center;
+            }
+        }
+
+        @media (max-width:740px) {
+            .in02 {
+                padding: 0 15px 50px 15px;
+            }
+
+            .in02 i {
+                opacity: 0.8;
+            }
+
+            .in03 {
+                align-items: center;
+                padding: 0;
+                margin-bottom: 60px;
+            }
+
+            .in03 h5 {
+                margin-bottom: 50px;
+            }
+
+            .in03 dd {
+                position: static;
+            }
+
+            .in04 em::before {
+                position: static;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .in04 em,
+            .in04 span {
+                text-shadow: 1px 1px 3px black;
+            }
+        }
+
+        @media (max-width:425px) {
+            .inp p u {
+                font-size: 20px;
+                padding: 5px 0 5px 55px;
+            }
+
+            .inp p em {
+                font-size: 16px;
+            }
+
+            .in04 em {
+                font-size: 28px;
+            }
+
+            .in04 p b {
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+
+    <div class="all_main">
+        <div class="all_main_key_word">
+            <h2>123</h2>
+            <h3>123</h3>
+            <h4>123</h4>
+            <h5>123</h5>
+            <h6>123</h6>
+        </div>
+        <!-- 右邊炸雞圖 + 左邊文字介紹 -->
+        <div class="in01">
+            <div class="inp">
+                <p data-animate-in="left" style="transition:0.65s;">
+                    <b><img src="https://pic03.eapple.com.tw/fukdup/chicken-img001.png" alt=""></b>
+                    <u>有一種叛逆是開炸雞店</u>
+                    <em>
+                        相信小時候你也有過想吃炸雞卻被爸媽阻止的經驗... <br>
+                        當時我就叛逆的期許自己以後要開一家厲害的炸雞店，隨時想吃就吃。<br>
+                        炸雞，對我來說是一股熱愛，於是「法大炸雞」成立了。
+                    </em>
+                    <u>有一種歡樂是我很法大</u>
+                    <em>
+                        今天FUKDUP了嗎?!<br>
+                        FUKDUP是形容狂歡後的ㄎㄧㄤ感。
+                    </em>
+                    <em>
+                        在初創法大前，我們有過密集研發期，一起吃炸雞、喝啤酒。<br>
+                        我們歡樂、我們喧鬧、我們享受狂歡，因為，認真時也可以很法大。你呢?一起法起來吧!
+                    </em>
+                </p>
+            </div>
+            <h5><img src="https://pic03.eapple.com.tw/fukdup/chicken-img004.jpg" alt=""></h5>
+        </div>
+        <!-- YUMMY -->
+        <div class="in02">
+            <div class="in021">
+                <!-- 衝擊五感的品牌堅持 -->
+                <div class="in03">
+                    <h5><img src="https://pic03.eapple.com.tw/fukdup/chicken-img005.png" alt=""></h5>
+                    <dd data-animate-in="up" style="transition:1s;">
+                        <b>衝擊五感的品牌堅持</b>
+                        <em>Brand Insistence</em>
+                        <span>視覺<a><img src="https://pic03.eapple.com.tw/fukdup/chicken-img010.png"
+                                    alt=""></a>看得到入口的安心</span>
+                        <span>聽覺<a><img src="https://pic03.eapple.com.tw/fukdup/chicken-img010.png"
+                                    alt=""></a>聽得到每一口酥脆</span>
+                        <span>嗅覺<a><img src="https://pic03.eapple.com.tw/fukdup/chicken-img010.png"
+                                    alt=""></a>聞得到新鮮食材味</span>
+                        <span>味覺<a><img src="https://pic03.eapple.com.tw/fukdup/chicken-img010.png"
+                                    alt=""></a>吃得到多層次美味</span>
+                        <span>觸覺<a><img src="https://pic03.eapple.com.tw/fukdup/chicken-img010.png" alt=""></a>觸得到消費者需求
+                        </span>
+                    </dd>
+                </div>
+                <!-- 用盡心雞的獨門炸雞 -->
+                <div class="in04" data-animate-in="right" style="transition:0.65s;">
+                    <em>用盡心雞的獨門炸雞</em>
+                    <span>肉質鮮嫩多汁、皮薄而香酥脆，不油膩的口感<br>
+                        一個人也能獨享一個派對分享餐。</span>
+                    <p>
+                        <b>絕對獨特的雞肉處理技術</b>
+                        <strong>選用新鮮溫體雞肉外，以職人手法仔細清洗多餘油塊並加以處理。</strong>
+                    </p>
+                    <p>
+                        <b>保證獨家的料理醃製配方</b>
+                        <strong>將雞肉細心按摩後醃製一日，打通任督二脈展現百分百究極入味。</strong>
+                    </p>
+                    <p>
+                        <b>承諾獨有的自創調味秘訣</b>
+                        <strong>多種招牌醬料搭配不同料理手法，炸雞口感獨樹一格僅源自法大。</strong>
+                    </p>
+                </div>
+            </div>
+            <i><img src="https://pic03.eapple.com.tw/fukdup/chicken-img009.png" alt=""></i>
+        </div>
+    </div>
